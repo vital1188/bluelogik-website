@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
-import Background3D from './components/Background3D';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -30,15 +29,12 @@ function App() {
     <LanguageProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen text-gray-900 relative">
-          {/* Subtle Background Animation */}
-          <Background3D />
-          
+        <div className="min-h-screen text-gray-900">
           {/* Navigation */}
           <Navbar />
           
           {/* Main Content */}
-          <main className="relative z-10">
+          <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<AllServices />} />

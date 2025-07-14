@@ -4,7 +4,6 @@ import { ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Background3D from '../../components/Background3D';
 
 interface ServiceInfo {
   id: string;
@@ -382,11 +381,10 @@ const ServiceDetail: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen text-gray-900 relative">
-      <Background3D />
+    <div className="min-h-screen text-gray-900">
       <Navbar />
       
-      <main className="relative z-10 pt-24 pb-16">
+      <main className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back button */}
           <Link 
