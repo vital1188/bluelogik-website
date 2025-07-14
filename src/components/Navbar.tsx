@@ -1,131 +1,111 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe, Sparkles } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showLangMenu, setShowLangMenu] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const [langOpen, setLangOpen] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { label: t('nav.home'), href: '#home' },
-    { label: t('nav.services'), href: '#services' },
-    { label: t('nav.whyAI'), href: '#why-ai' },
-    { label: t('nav.contact'), href: '#contact' },
+    { name: t('nav.home'), href: '/#home' },
+    { name: t('nav.services'), href: '/#services' },
+    { name: t('nav.whyAI'), href: '/#why-ai' },
+    { name: t('nav.contact'), href: '/#contact' },
   ];
 
   const languages = [
-    { code: 'en', label: 'English', flag: '🇬🇧' },
-    { code: 'es', label: 'Español', flag: '🇪🇸' },
-    { code: 'fr', label: 'Français', flag: '🇫🇷' },
-    { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
-    { code: 'ro', label: 'Română', flag: '🇷🇴' },
-    { code: 'ru', label: 'Русский', flag: '🇷🇺' },
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'ro', name: 'Română', flag: '🇷🇴' },
+    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
   ];
 
+  const currentLang = languages.find(lang => lang.code === language);
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="container-wide">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/">
+          <Link to="/" className="relative group">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center space-x-2"
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg blur opacity-50" />
-                <div className="relative bg-gradient-to-r from-purple-500 to-purple-700 p-2 rounded-lg">
-                  <Sparkles className="h-5 w-5 text-white" />
-                </div>
-              </div>
-              <span className="text-xl font-bold text-gray-900">BlueLogik</span>
+              <span className="text-2xl font-thin tracking-wider">BlueLogik</span>
             </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center space-x-12">
             {navItems.map((item, index) => (
-              isHomePage ? (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Link
+                  to={item.href}
+                  className="text-sm font-light tracking-wide hover:opacity-60 transition-opacity duration-300"
                 >
-                  {item.label}
-                </motion.a>
-              ) : (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    to={`/${item.href}`}
-                    className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              )
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
-          </div>
 
-          {/* Right Side */}
-          <div className="flex items-center gap-4">
             {/* Language Selector */}
             <div className="relative">
               <button
-                onClick={() => setShowLangMenu(!showLangMenu)}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center space-x-2 text-sm font-light hover:opacity-60 transition-opacity duration-300"
               >
-                <Globe className="h-4 w-4 text-gray-600" />
-                <span className="text-sm font-medium text-gray-700">
-                  {languages.find(l => l.code === language)?.flag}
-                </span>
+                <Globe className="h-4 w-4" />
+                <span>{currentLang?.flag}</span>
               </button>
 
               <AnimatePresence>
-                {showLangMenu && (
+                {langOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 border border-gray-100"
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-4 bg-white border border-gray-100 min-w-[150px]"
                   >
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
                         onClick={() => {
-                          setLanguage(lang.code as 'en' | 'es' | 'fr' | 'de' | 'ro' | 'ru');
-                          setShowLangMenu(false);
+                          setLanguage(lang.code as any);
+                          setLangOpen(false);
                         }}
-                        className={`w-full px-4 py-2 text-left hover:bg-gray-50 transition-colors flex items-center gap-3 ${
-                          language === lang.code ? 'bg-purple-50 text-purple-600' : 'text-gray-700'
+                        className={`w-full px-4 py-3 text-left text-sm font-light hover:bg-gray-50 transition-colors duration-200 flex items-center space-x-3 ${
+                          language === lang.code ? 'bg-gray-50' : ''
                         }`}
                       >
                         <span>{lang.flag}</span>
-                        <span className="text-sm">{lang.label}</span>
+                        <span>{lang.name}</span>
                       </button>
                     ))}
                   </motion.div>
@@ -134,39 +114,28 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* CTA Button */}
-            {isHomePage ? (
-              <motion.a
-                href="#contact"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="hidden md:block btn-primary text-sm"
-              >
-                {t('nav.contact')}
-              </motion.a>
-            ) : (
-              <Link to="/#contact">
-                <motion.button
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="hidden md:block btn-primary text-sm"
-                >
-                  {t('nav.contact')}
-                </motion.button>
-              </Link>
-            )}
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              {isOpen ? (
-                <X className="h-5 w-5 text-gray-700" />
-              ) : (
-                <Menu className="h-5 w-5 text-gray-700" />
-              )}
-            </button>
+              <Link to="/#contact" className="btn-minimal">
+                {t('nav.contact')}
+              </Link>
+            </motion.div>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2"
+          >
+            {isOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
         </div>
       </div>
 
@@ -177,22 +146,43 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
             className="md:hidden bg-white border-t border-gray-100"
           >
-            <div className="px-4 py-4 space-y-2">
+            <div className="container py-8 space-y-6">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
+                <Link
+                  key={item.name}
+                  to={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block text-lg font-light"
                 >
-                  {item.label}
-                </a>
+                  {item.name}
+                </Link>
               ))}
-              <button className="w-full btn-primary text-sm mt-4">
-                {t('nav.contact')}
-              </button>
+
+              {/* Mobile Language Selector */}
+              <div className="pt-6 border-t border-gray-100">
+                <p className="text-sm text-gray-500 mb-4">Language</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setLanguage(lang.code as any);
+                        setIsOpen(false);
+                      }}
+                      className={`px-4 py-2 text-sm font-light border ${
+                        language === lang.code
+                          ? 'border-gray-900 bg-gray-900 text-white'
+                          : 'border-gray-200'
+                      }`}
+                    >
+                      {lang.flag} {lang.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

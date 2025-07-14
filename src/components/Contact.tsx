@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact: React.FC = () => {
@@ -61,33 +61,86 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            {t('contact.title')}
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {t('contact.subtitle')}
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+    <section id="contact" className="section-padding">
+      <div className="container">
+        <div className="grid lg:grid-cols-2 gap-20">
+          {/* Left Column - Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white rounded-xl p-8 shadow-sm">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+            <h2 className="mb-6">{t('contact.title')}</h2>
+            <p className="text-lg mb-12">
+              {t('contact.subtitle')}
+            </p>
+
+            {/* Contact Info */}
+            <div className="space-y-8 mb-12">
+              {contactInfo.map((info, index) => (
+                <motion.a
+                  key={index}
+                  href={info.href}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 group-hover:bg-gray-200 transition-colors">
+                    <info.icon className="h-4 w-4 text-gray-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm text-gray-500 mb-1">
+                      {info.label}
+                    </h4>
+                    <p className="text-gray-900">
+                      {info.value}
+                    </p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Business Hours */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="border-t border-gray-100 pt-8"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Clock className="h-4 w-4 text-gray-400" />
+                <h4 className="text-sm font-medium">{t('contact.hours.title')}</h4>
+              </div>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">{t('contact.hours.weekdays')}</span>
+                  <span className="text-gray-900">9:00 AM - 6:00 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">{t('contact.hours.saturday')}</span>
+                  <span className="text-gray-900">10:00 AM - 4:00 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">{t('contact.hours.sunday')}</span>
+                  <span className="text-gray-900">{t('contact.hours.closed')}</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column - Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-gray-50 p-12">
+              <h3 className="text-2xl font-light mb-8">
                 {t('contact.form.title')}
               </h3>
               
@@ -97,8 +150,8 @@ const Contact: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
                 >
-                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                  <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                  <h4 className="text-xl font-light mb-2">
                     {t('contact.form.success')}
                   </h4>
                   <p className="text-gray-600">
@@ -107,9 +160,9 @@ const Contact: React.FC = () => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="name" className="block text-sm text-gray-600 mb-2">
                         {t('contact.form.name')} *
                       </label>
                       <input
@@ -119,12 +172,11 @@ const Contact: React.FC = () => {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                        placeholder="John Doe"
+                        className="input-minimal"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label htmlFor="email" className="block text-sm text-gray-600 mb-2">
                         {t('contact.form.email')} *
                       </label>
                       <input
@@ -134,14 +186,13 @@ const Contact: React.FC = () => {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                        placeholder="john@example.com"
+                        className="input-minimal"
                       />
                     </div>
                   </div>
                   
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="company" className="block text-sm text-gray-600 mb-2">
                       {t('contact.form.company')}
                     </label>
                     <input
@@ -150,13 +201,12 @@ const Contact: React.FC = () => {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                      placeholder={t('contact.form.company')}
+                      className="input-minimal"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label htmlFor="message" className="block text-sm text-gray-600 mb-2">
                       {t('contact.form.message')} *
                     </label>
                     <textarea
@@ -166,7 +216,7 @@ const Contact: React.FC = () => {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-none"
+                      className="input-minimal resize-none"
                       placeholder={t('contact.form.messagePlaceholder')}
                     />
                   </div>
@@ -174,101 +224,39 @@ const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-minimal-dark w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                         {t('contact.form.sending')}
                       </>
                     ) : (
                       <>
                         {t('contact.form.send')}
-                        <Send className="h-5 w-5" />
+                        <Send className="h-4 w-4" />
                       </>
                     )}
                   </button>
                 </form>
               )}
             </div>
-          </motion.div>
 
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                {t('contact.info.title')}
-              </h3>
-              <p className="text-gray-600 mb-8">
-                {t('contact.info.available')}
-              </p>
-              
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <motion.a
-                    key={index}
-                    href={info.href}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="flex items-start gap-4 group"
-                  >
-                    <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0 group-hover:bg-purple-200 transition-colors">
-                      <info.icon className="h-6 w-6 text-purple-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-1">
-                        {info.label}
-                      </h4>
-                      <p className="text-gray-600 group-hover:text-purple-600 transition-colors">
-                        {info.value}
-                      </p>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-
-            {/* Business Hours */}
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h4 className="font-semibold text-gray-900 mb-4">
-                {t('contact.hours.title')}
-              </h4>
-              <div className="space-y-2 text-gray-600">
-                <div className="flex justify-between">
-                  <span>{t('contact.hours.weekdays')}</span>
-                  <span className="font-medium">9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>{t('contact.hours.saturday')}</span>
-                  <span className="font-medium">10:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>{t('contact.hours.sunday')}</span>
-                  <span className="font-medium">{t('contact.hours.closed')}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Response */}
-            <div className="bg-purple-50 rounded-xl p-6">
-              <h4 className="font-semibold text-gray-900 mb-2">
+            {/* Quick Response Note */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="mt-8 p-6 border border-gray-200"
+            >
+              <h4 className="text-sm font-medium mb-2">
                 {t('contact.quick.title')}
               </h4>
-              <p className="text-gray-600 mb-4">
+              <p className="text-sm text-gray-600">
                 {t('contact.quick.desc')}
               </p>
-              <button className="btn-primary text-sm">
-                {t('contact.quick.cta')}
-              </button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
