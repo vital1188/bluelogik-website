@@ -97,6 +97,16 @@ const baseTranslations = {
   'whyai.experience.title': 'Customer Experience',
   'whyai.experience.desc': 'AI-powered personalization increases customer satisfaction by 35% and boosts retention rates through tailored experiences and 24/7 support.',
   
+  // Why AI Features
+  'whyai.features.title': 'AI-Powered Features',
+  'whyai.features.realtime': 'Real-time data processing',
+  'whyai.features.predictive': 'Predictive analytics',
+  'whyai.features.automated': 'Automated workflows',
+  'whyai.features.smart': 'Smart recommendations',
+  'whyai.features.continuous': 'Continuous learning',
+  'whyai.features.scalable': 'Scalable solutions',
+  'whyai.cta': 'Start Your AI Journey',
+  
   // Contact Section
   'contact.title': 'Get in Touch',
   'contact.subtitle': 'Ready to transform your business with AI? Contact us today to discuss your needs.',
@@ -108,10 +118,23 @@ const baseTranslations = {
   'contact.form.send': 'Send Message',
   'contact.form.sending': 'Sending...',
   'contact.form.success': 'Message sent successfully!',
+  'contact.form.successDesc': 'We\'ll get back to you within 24 hours.',
   'contact.form.error': 'Failed to send message. Please try again.',
+  'contact.form.messagePlaceholder': 'Tell us about your project...',
   'contact.info.title': 'Contact Information',
   'contact.info.address': 'Chisinau, Moldova',
   'contact.info.available': 'Available 24/7 for your business needs',
+  'contact.info.email': 'Email',
+  'contact.info.phone': 'Phone',
+  'contact.info.location': 'Address',
+  'contact.hours.title': 'Business Hours',
+  'contact.hours.weekdays': 'Monday - Friday',
+  'contact.hours.saturday': 'Saturday',
+  'contact.hours.sunday': 'Sunday',
+  'contact.hours.closed': 'Closed',
+  'contact.quick.title': 'Need a quick response?',
+  'contact.quick.desc': 'For urgent inquiries, please call us directly or use our live chat support.',
+  'contact.quick.cta': 'Start Live Chat',
   
   // Footer
   'footer.rights': 'All rights reserved.',
@@ -144,9 +167,81 @@ const translations: Record<Language, Record<string, string>> = {
     'services.viewAll': 'Vezi Toate Serviciile',
     'services.learnMore': 'Află mai multe',
     
+    'services.optimization.title': 'Optimizare Sarcini de Afaceri cu AI',
+    'services.optimization.desc': 'Eficientizează operațiunile și automatizează sarcinile repetitive cu soluțiile noastre de optimizare a fluxului de lucru bazate pe AI.',
+    
+    'services.sales.title': 'Creștere Vânzări Îmbunătățită cu AI',
+    'services.sales.desc': 'Valorifică analizele predictive și informațiile despre clienți pentru a identifica oportunități și crește ratele de conversie.',
+    
+    'services.marketing.title': 'Strategii de Marketing cu AI',
+    'services.marketing.desc': 'Creează campanii de marketing bazate pe date cu conținut personalizat și optimizare automată.',
+    
+    'services.social.title': 'Optimizare Social Media cu AI',
+    'services.social.desc': 'Îmbunătățește-ți prezența pe rețelele sociale cu crearea de conținut și analize de performanță bazate pe AI.',
+    
+    'services.analysis.title': 'Analiză Avansată de Date cu AI',
+    'services.analysis.desc': 'Transformă datele brute în informații acționabile cu soluțiile noastre avansate de analiză.',
+    
+    'services.integration.title': 'Servicii de Integrare AI',
+    'services.integration.desc': 'Integrează fără probleme capacitățile AI în sistemele și fluxurile de lucru existente.',
+    
+    'services.webdev.title': 'Dezvoltare Web cu AI',
+    'services.webdev.desc': 'Creează site-uri web de ultimă generație cu instrumente de dezvoltare asistate de AI.',
+    
+    'services.webopt.title': 'Optimizare Website cu AI',
+    'services.webopt.desc': 'Îmbunătățește performanța, SEO și ratele de conversie ale site-ului tău existent.',
+    
+    'services.website.title': 'Dezvoltare Website',
+    'services.website.desc': 'Dezvoltare profesională de website-uri cu tehnologii moderne, design responsive și performanță optimă.',
+    
+    'services.shopify.title': 'Dezvoltare E-commerce Shopify',
+    'services.shopify.desc': 'Construiește magazine online puternice cu Shopify, inclusiv teme personalizate, aplicații și integrări.',
+    
+    'services.woocommerce.title': 'Dezvoltare WooCommerce',
+    'services.woocommerce.desc': 'Creează soluții e-commerce flexibile bazate pe WordPress cu personalizare WooCommerce.',
+    
+    'services.bigcommerce.title': 'Dezvoltare BigCommerce',
+    'services.bigcommerce.desc': 'Soluții e-commerce la nivel enterprise cu BigCommerce pentru afaceri online scalabile.',
+    
+    // All Services Page
+    'allServices.title': 'Toate Serviciile Noastre',
+    'allServices.subtitle': 'Soluții complete pentru a transforma afacerea ta cu AI și tehnologii web moderne',
+    'allServices.cta': 'Începe cu Serviciile Noastre',
+    
+    // Service Detail Pages
+    'serviceDetail.backToServices': 'Înapoi la Servicii',
+    'serviceDetail.keyFeatures': 'Caracteristici Cheie',
+    'serviceDetail.benefits': 'Beneficii',
+    'serviceDetail.process': 'Procesul Nostru',
+    'serviceDetail.ready': 'Ești Gata să Începi?',
+    'serviceDetail.discuss': 'Hai să discutăm cum',
+    'serviceDetail.transform': 'poate transforma afacerea ta.',
+    
     // Why AI Section
     'whyai.title': 'De Ce Afacerea Ta Are Nevoie de AI',
     'whyai.subtitle': 'Peisajul afacerilor se schimbă rapid. Companiile care adoptă AI acum vor prospera.',
+    
+    'whyai.advantage.title': 'Avantaj Competitiv',
+    'whyai.advantage.desc': 'Companiile care implementează soluții AI obțin un avantaj semnificativ față de concurenți, cu 63% dintre afaceri raportând venituri crescute după adoptarea AI.',
+    
+    'whyai.efficiency.title': 'Eficiență Operațională',
+    'whyai.efficiency.desc': 'AI automatizează sarcinile repetitive, reducând costurile operaționale cu până la 40% și permițând echipei tale să se concentreze pe activități strategice.',
+    
+    'whyai.decision.title': 'Luare de Decizii Îmbunătățită',
+    'whyai.decision.desc': 'Informațiile bazate pe date din AI permit decizii de afaceri mai bune, cu 87% dintre executivi raportând o planificare strategică mai încrezătoare.',
+    
+    'whyai.experience.title': 'Experiența Clientului',
+    'whyai.experience.desc': 'Personalizarea bazată pe AI crește satisfacția clienților cu 35% și îmbunătățește ratele de retenție prin experiențe personalizate și suport 24/7.',
+    
+    // Why AI Features
+    'whyai.features.title': 'Caracteristici Bazate pe AI',
+    'whyai.features.realtime': 'Procesare date în timp real',
+    'whyai.features.predictive': 'Analize predictive',
+    'whyai.features.automated': 'Fluxuri de lucru automatizate',
+    'whyai.features.smart': 'Recomandări inteligente',
+    'whyai.features.continuous': 'Învățare continuă',
+    'whyai.features.scalable': 'Soluții scalabile',
+    'whyai.cta': 'Începe Călătoria ta cu AI',
     
     // Contact Section
     'contact.title': 'Contactează-ne',
@@ -159,10 +254,23 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.send': 'Trimite Mesaj',
     'contact.form.sending': 'Se trimite...',
     'contact.form.success': 'Mesaj trimis cu succes!',
+    'contact.form.successDesc': 'Te vom contacta în 24 de ore.',
     'contact.form.error': 'Eroare la trimiterea mesajului. Te rugăm să încerci din nou.',
+    'contact.form.messagePlaceholder': 'Spune-ne despre proiectul tău...',
     'contact.info.title': 'Informații de Contact',
     'contact.info.address': 'Chișinău, Moldova',
     'contact.info.available': 'Disponibili 24/7 pentru nevoile afacerii tale',
+    'contact.info.email': 'Email',
+    'contact.info.phone': 'Telefon',
+    'contact.info.location': 'Adresă',
+    'contact.hours.title': 'Program de Lucru',
+    'contact.hours.weekdays': 'Luni - Vineri',
+    'contact.hours.saturday': 'Sâmbătă',
+    'contact.hours.sunday': 'Duminică',
+    'contact.hours.closed': 'Închis',
+    'contact.quick.title': 'Ai nevoie de un răspuns rapid?',
+    'contact.quick.desc': 'Pentru solicitări urgente, te rugăm să ne suni direct sau să folosești chat-ul live.',
+    'contact.quick.cta': 'Începe Chat Live',
     
     // Footer
     'footer.rights': 'Toate drepturile rezervate.',

@@ -42,19 +42,19 @@ const Contact: React.FC = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
+      label: t('contact.info.email'),
       value: 'contact@bluelogik.ai',
       href: 'mailto:contact@bluelogik.ai',
     },
     {
       icon: Phone,
-      label: 'Phone',
+      label: t('contact.info.phone'),
       value: '+1 (234) 567-890',
       href: 'tel:+1234567890',
     },
     {
       icon: MapPin,
-      label: 'Address',
+      label: t('contact.info.location'),
       value: t('contact.info.address'),
       href: '#',
     },
@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
                     {t('contact.form.success')}
                   </h4>
                   <p className="text-gray-600">
-                    We'll get back to you within 24 hours.
+                    {t('contact.form.successDesc')}
                   </p>
                 </motion.div>
               ) : (
@@ -167,7 +167,7 @@ const Contact: React.FC = () => {
                       value={formData.message}
                       onChange={handleChange}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-colors resize-none"
-                      placeholder="Tell us about your project..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                     />
                   </div>
                   
@@ -239,20 +239,20 @@ const Contact: React.FC = () => {
             {/* Business Hours */}
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h4 className="font-semibold text-gray-900 mb-4">
-                Business Hours
+                {t('contact.hours.title')}
               </h4>
               <div className="space-y-2 text-gray-600">
                 <div className="flex justify-between">
-                  <span>Monday - Friday</span>
+                  <span>{t('contact.hours.weekdays')}</span>
                   <span className="font-medium">9:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Saturday</span>
+                  <span>{t('contact.hours.saturday')}</span>
                   <span className="font-medium">10:00 AM - 4:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span className="font-medium">Closed</span>
+                  <span>{t('contact.hours.sunday')}</span>
+                  <span className="font-medium">{t('contact.hours.closed')}</span>
                 </div>
               </div>
             </div>
@@ -260,13 +260,13 @@ const Contact: React.FC = () => {
             {/* Quick Response */}
             <div className="bg-purple-50 rounded-xl p-6">
               <h4 className="font-semibold text-gray-900 mb-2">
-                Need a quick response?
+                {t('contact.quick.title')}
               </h4>
               <p className="text-gray-600 mb-4">
-                For urgent inquiries, please call us directly or use our live chat support.
+                {t('contact.quick.desc')}
               </p>
               <button className="btn-primary text-sm">
-                Start Live Chat
+                {t('contact.quick.cta')}
               </button>
             </div>
           </motion.div>

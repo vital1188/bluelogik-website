@@ -10,43 +10,43 @@ const WhyAI: React.FC = () => {
   const { t } = useLanguage();
 
   const benefits = [
-    {
-      icon: TrendingUp,
-      titleKey: 'whyai.advantage.title',
-      descKey: 'whyai.advantage.desc',
-      stat: '63%',
-      statLabel: 'Revenue Increase',
-    },
-    {
-      icon: Zap,
-      titleKey: 'whyai.efficiency.title',
-      descKey: 'whyai.efficiency.desc',
-      stat: '40%',
-      statLabel: 'Cost Reduction',
-    },
-    {
-      icon: Brain,
-      titleKey: 'whyai.decision.title',
-      descKey: 'whyai.decision.desc',
-      stat: '87%',
-      statLabel: 'Better Decisions',
-    },
-    {
-      icon: Users,
-      titleKey: 'whyai.experience.title',
-      descKey: 'whyai.experience.desc',
-      stat: '35%',
-      statLabel: 'Happier Customers',
-    },
+      {
+        icon: TrendingUp,
+        title: t('whyai.advantage.title'),
+        description: t('whyai.advantage.desc'),
+        stat: '63%',
+        statLabel: 'Revenue Increase',
+      },
+      {
+        icon: Zap,
+        title: t('whyai.efficiency.title'),
+        description: t('whyai.efficiency.desc'),
+        stat: '40%',
+        statLabel: 'Cost Reduction',
+      },
+      {
+        icon: Brain,
+        title: t('whyai.decision.title'),
+        description: t('whyai.decision.desc'),
+        stat: '87%',
+        statLabel: 'Better Decisions',
+      },
+      {
+        icon: Users,
+        title: t('whyai.experience.title'),
+        description: t('whyai.experience.desc'),
+        stat: '35%',
+        statLabel: 'Satisfaction Boost',
+      },
   ];
 
   const features = [
-    'Real-time data processing',
-    'Predictive analytics',
-    'Automated workflows',
-    'Smart recommendations',
-    'Continuous learning',
-    'Scalable solutions',
+    t('whyai.features.realtime'),
+    t('whyai.features.predictive'),
+    t('whyai.features.automated'),
+    t('whyai.features.smart'),
+    t('whyai.features.continuous'),
+    t('whyai.features.scalable'),
   ];
 
   return (
@@ -85,10 +85,10 @@ const WhyAI: React.FC = () => {
               </div>
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {t(benefit.titleKey)}
+                  {benefit.title}
                 </h3>
                 <p className="text-gray-600 mb-3">
-                  {t(benefit.descKey)}
+                  {benefit.description}
                 </p>
                 <div className="flex items-baseline gap-2">
                   <span className="text-2xl font-bold text-purple-600">
@@ -112,7 +112,7 @@ const WhyAI: React.FC = () => {
           className="bg-gray-50 rounded-2xl p-8 md:p-12"
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            AI-Powered Features
+            {t('whyai.features.title')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((feature, index) => (
@@ -140,7 +140,7 @@ const WhyAI: React.FC = () => {
           className="text-center mt-12"
         >
           <a href="#contact" className="btn-primary inline-block">
-            Start Your AI Journey
+            {t('whyai.cta')}
           </a>
         </motion.div>
       </div>
