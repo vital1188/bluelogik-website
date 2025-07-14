@@ -249,6 +249,118 @@ const ServiceDetail: React.FC = () => {
         'Ongoing monitoring'
       ],
       cta: 'Optimize Your Site'
+    },
+    'website-development': {
+      id: 'website-development',
+      icon: () => null,
+      title: 'Website Development',
+      description: 'Professional website development with modern technologies, responsive design, and optimal performance.',
+      features: [
+        'Custom website design',
+        'Responsive development',
+        'Modern frameworks (React, Vue, Angular)',
+        'CMS integration',
+        'Performance optimization'
+      ],
+      benefits: [
+        'Professional online presence',
+        'Mobile-friendly design',
+        'Fast loading times',
+        'SEO-ready structure',
+        'Scalable architecture'
+      ],
+      process: [
+        'Requirements gathering',
+        'Design mockups',
+        'Development phase',
+        'Testing and QA',
+        'Launch and support'
+      ],
+      cta: 'Start Your Project'
+    },
+    'ecommerce-shopify': {
+      id: 'ecommerce-shopify',
+      icon: () => null,
+      title: 'Shopify E-commerce Development',
+      description: 'Build powerful online stores with Shopify, including custom themes, apps, and integrations.',
+      features: [
+        'Custom Shopify themes',
+        'App development',
+        'Payment gateway integration',
+        'Inventory management',
+        'Multi-channel selling'
+      ],
+      benefits: [
+        'Quick time to market',
+        'Secure payment processing',
+        'Mobile-optimized stores',
+        'Built-in SEO features',
+        'Scalable platform'
+      ],
+      process: [
+        'Store planning',
+        'Theme customization',
+        'App integration',
+        'Product setup',
+        'Launch and training'
+      ],
+      cta: 'Build Your Store'
+    },
+    'ecommerce-woocommerce': {
+      id: 'ecommerce-woocommerce',
+      icon: () => null,
+      title: 'WooCommerce Development',
+      description: 'Create flexible WordPress-based e-commerce solutions with WooCommerce customization.',
+      features: [
+        'Custom WooCommerce themes',
+        'Plugin development',
+        'Payment integration',
+        'Product management',
+        'WordPress integration'
+      ],
+      benefits: [
+        'Full customization control',
+        'Cost-effective solution',
+        'SEO-friendly platform',
+        'Large plugin ecosystem',
+        'Content marketing ready'
+      ],
+      process: [
+        'WordPress setup',
+        'WooCommerce configuration',
+        'Theme development',
+        'Plugin integration',
+        'Testing and launch'
+      ],
+      cta: 'Start Selling Online'
+    },
+    'ecommerce-bigcommerce': {
+      id: 'ecommerce-bigcommerce',
+      icon: () => null,
+      title: 'BigCommerce Development',
+      description: 'Enterprise-level e-commerce solutions with BigCommerce for scalable online businesses.',
+      features: [
+        'Enterprise features',
+        'API-first architecture',
+        'Multi-storefront capability',
+        'B2B functionality',
+        'Advanced analytics'
+      ],
+      benefits: [
+        'Enterprise scalability',
+        'No transaction fees',
+        'Built-in B2B features',
+        'Headless commerce ready',
+        'Global selling capabilities'
+      ],
+      process: [
+        'Platform assessment',
+        'Architecture planning',
+        'Custom development',
+        'Integration setup',
+        'Enterprise deployment'
+      ],
+      cta: 'Scale Your Business'
     }
   };
 

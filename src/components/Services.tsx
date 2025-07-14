@@ -135,10 +135,10 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <a href="#contact" className="btn-primary inline-flex items-center">
+          <Link to="/services" className="btn-primary inline-flex items-center">
             View All Services
             <ArrowRight className="inline-block ml-2 h-5 w-5" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

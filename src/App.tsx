@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
+import AllServices from './pages/AllServices';
 import ServiceDetail from './pages/services/ServiceDetail';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <main className="relative z-10">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<AllServices />} />
               <Route path="/services/:serviceId" element={<ServiceDetail />} />
             </Routes>
           </main>
