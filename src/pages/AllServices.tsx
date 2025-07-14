@@ -6,102 +6,105 @@ import {
   BarChart3, Puzzle, Code2, Search,
   ShoppingCart, Store, ArrowRight
 } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
+
 const AllServices: React.FC = () => {
+  const { t } = useLanguage();
 
   const services = [
     {
       id: 'business-optimization',
       icon: Zap,
-      title: 'AI Business Task Optimization',
-      description: 'Streamline operations and automate repetitive tasks with our AI-powered workflow optimization solutions.',
+      title: t('services.optimization.title'),
+      description: t('services.optimization.desc'),
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
     },
     {
       id: 'sales-growth',
       icon: TrendingUp,
-      title: 'AI-Enhanced Sales Growth',
-      description: 'Leverage predictive analytics and customer insights to identify opportunities and increase conversion rates.',
+      title: t('services.sales.title'),
+      description: t('services.sales.desc'),
       color: 'text-purple-600',
       bgColor: 'bg-purple-50',
     },
     {
       id: 'marketing-strategies',
       icon: Megaphone,
-      title: 'AI-Powered Marketing Strategies',
-      description: 'Create data-driven marketing campaigns with personalized content and automated optimization.',
+      title: t('services.marketing.title'),
+      description: t('services.marketing.desc'),
       color: 'text-orange-600',
       bgColor: 'bg-orange-50',
     },
     {
       id: 'social-media',
       icon: Share2,
-      title: 'AI Social Media Optimization',
-      description: 'Enhance your social media presence with AI-powered content creation and performance analytics.',
+      title: t('services.social.title'),
+      description: t('services.social.desc'),
       color: 'text-green-600',
       bgColor: 'bg-green-50',
     },
     {
       id: 'data-analysis',
       icon: BarChart3,
-      title: 'Advanced AI Data Analysis',
-      description: 'Transform raw data into actionable insights with our advanced analytics solutions.',
+      title: t('services.analysis.title'),
+      description: t('services.analysis.desc'),
       color: 'text-indigo-600',
       bgColor: 'bg-indigo-50',
     },
     {
       id: 'integration',
       icon: Puzzle,
-      title: 'AI Integration Services',
-      description: 'Seamlessly integrate AI capabilities into your existing systems and workflows.',
+      title: t('services.integration.title'),
+      description: t('services.integration.desc'),
       color: 'text-yellow-600',
       bgColor: 'bg-yellow-50',
     },
     {
       id: 'web-development',
       icon: Code2,
-      title: 'AI-Powered Web Development',
-      description: 'Build intelligent websites and applications with AI-enhanced features.',
+      title: t('services.webdev.title'),
+      description: t('services.webdev.desc'),
       color: 'text-pink-600',
       bgColor: 'bg-pink-50',
     },
     {
       id: 'web-optimization',
       icon: Search,
-      title: 'AI Website Optimization',
-      description: 'Optimize your website performance with AI-driven insights and automation.',
+      title: t('services.webopt.title'),
+      description: t('services.webopt.desc'),
       color: 'text-cyan-600',
       bgColor: 'bg-cyan-50',
     },
     {
       id: 'website-development',
       icon: Code2,
-      title: 'Website Development',
-      description: 'Professional website development with modern technologies, responsive design, and optimal performance.',
+      title: t('services.website.title'),
+      description: t('services.website.desc'),
       color: 'text-violet-600',
       bgColor: 'bg-violet-50',
     },
     {
       id: 'ecommerce-shopify',
       icon: ShoppingCart,
-      title: 'Shopify E-commerce Development',
-      description: 'Build powerful online stores with Shopify, including custom themes, apps, and integrations.',
+      title: t('services.shopify.title'),
+      description: t('services.shopify.desc'),
       color: 'text-green-600',
       bgColor: 'bg-green-50',
     },
     {
       id: 'ecommerce-woocommerce',
       icon: Store,
-      title: 'WooCommerce Development',
-      description: 'Create flexible WordPress-based e-commerce solutions with WooCommerce customization.',
+      title: t('services.woocommerce.title'),
+      description: t('services.woocommerce.desc'),
       color: 'text-purple-600',
       bgColor: 'bg-purple-50',
     },
     {
       id: 'ecommerce-bigcommerce',
       icon: Store,
-      title: 'BigCommerce Development',
-      description: 'Enterprise-level e-commerce solutions with BigCommerce for scalable online businesses.',
+      title: t('services.bigcommerce.title'),
+      description: t('services.bigcommerce.desc'),
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
     },
@@ -117,10 +120,10 @@ const AllServices: React.FC = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            All Our Services
+            {t('allServices.title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive solutions to transform your business with AI and modern web technologies
+            {t('allServices.subtitle')}
           </p>
         </motion.div>
 
@@ -148,7 +151,7 @@ const AllServices: React.FC = () => {
                 to={`/services/${service.id}`}
                 className={`inline-flex items-center font-medium ${service.color} hover:underline`}
               >
-                Learn more
+                {t('services.learnMore')}
                 <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </motion.div>
@@ -162,7 +165,7 @@ const AllServices: React.FC = () => {
           className="text-center mt-16"
         >
           <Link to="/#contact" className="btn-primary inline-flex items-center">
-            Get Started with Our Services
+            {t('allServices.cta')}
             <ArrowRight className="inline-block ml-2 h-5 w-5" />
           </Link>
         </motion.div>

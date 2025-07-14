@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Background3D from '../../components/Background3D';
@@ -18,6 +19,7 @@ interface ServiceInfo {
 
 const ServiceDetail: React.FC = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
+  const { t } = useLanguage();
   
   // Scroll to top when component mounts
   useEffect(() => {
@@ -392,7 +394,7 @@ const ServiceDetail: React.FC = () => {
             className="inline-flex items-center text-purple-600 hover:text-purple-700 mb-8"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            Back to Services
+            {t('serviceDetail.backToServices')}
           </Link>
 
           {/* Hero Section */}
@@ -408,7 +410,7 @@ const ServiceDetail: React.FC = () => {
           {/* Features Section */}
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <div>
-              <h2 className="text-2xl font-bold mb-6">Key Features</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('serviceDetail.keyFeatures')}</h2>
               <ul className="space-y-4">
                 {service.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
@@ -420,7 +422,7 @@ const ServiceDetail: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-6">Benefits</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('serviceDetail.benefits')}</h2>
               <ul className="space-y-4">
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
@@ -434,7 +436,7 @@ const ServiceDetail: React.FC = () => {
 
           {/* Process Section */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8 text-center">Our Process</h2>
+            <h2 className="text-2xl font-bold mb-8 text-center">{t('serviceDetail.process')}</h2>
             <div className="grid md:grid-cols-5 gap-4">
               {service.process.map((step, index) => (
                 <div key={index} className="text-center">
@@ -452,9 +454,9 @@ const ServiceDetail: React.FC = () => {
 
           {/* CTA Section */}
           <div className="text-center bg-gray-50 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-3xl font-bold mb-4">{t('serviceDetail.ready')}</h2>
             <p className="text-xl text-gray-600 mb-8">
-              Let's discuss how our {service.title} can transform your business.
+              {t('serviceDetail.discuss')} {service.title} {t('serviceDetail.transform')}
             </p>
             <Link 
               to="/#contact" 

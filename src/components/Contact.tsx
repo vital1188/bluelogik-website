@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -53,7 +55,7 @@ const Contact: React.FC = () => {
     {
       icon: MapPin,
       label: 'Address',
-      value: 'San Francisco, CA 94105',
+      value: t('contact.info.address'),
       href: '#',
     },
   ];
@@ -69,10 +71,10 @@ const Contact: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Get in Touch
+            {t('contact.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your business with AI? Contact us today to discuss your needs.
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -86,7 +88,7 @@ const Contact: React.FC = () => {
           >
             <div className="bg-white rounded-xl p-8 shadow-sm">
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Send us a message
+                {t('contact.form.title')}
               </h3>
               
               {isSubmitted ? (
@@ -97,7 +99,7 @@ const Contact: React.FC = () => {
                 >
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                    Thank you for your message!
+                    {t('contact.form.success')}
                   </h4>
                   <p className="text-gray-600">
                     We'll get back to you within 24 hours.
@@ -108,7 +110,7 @@ const Contact: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Your Name *
+                        {t('contact.form.name')} *
                       </label>
                       <input
                         type="text"
@@ -123,7 +125,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email Address *
+                        {t('contact.form.email')} *
                       </label>
                       <input
                         type="email"
@@ -140,7 +142,7 @@ const Contact: React.FC = () => {
                   
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Company
+                      {t('contact.form.company')}
                     </label>
                     <input
                       type="text"
@@ -149,13 +151,13 @@ const Contact: React.FC = () => {
                       value={formData.company}
                       onChange={handleChange}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-colors"
-                      placeholder="Your Company"
+                      placeholder={t('contact.form.company')}
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
+                      {t('contact.form.message')} *
                     </label>
                     <textarea
                       id="message"
@@ -177,11 +179,11 @@ const Contact: React.FC = () => {
                     {isSubmitting ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        Sending...
+                        {t('contact.form.sending')}
                       </>
                     ) : (
                       <>
-                        Send Message
+                        {t('contact.form.send')}
                         <Send className="h-5 w-5" />
                       </>
                     )}
@@ -201,11 +203,10 @@ const Contact: React.FC = () => {
           >
             <div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Contact Information
+                {t('contact.info.title')}
               </h3>
               <p className="text-gray-600 mb-8">
-                Reach out to us through any of the following channels. 
-                We're here to help you leverage AI for your business success.
+                {t('contact.info.available')}
               </p>
               
               <div className="space-y-6">
