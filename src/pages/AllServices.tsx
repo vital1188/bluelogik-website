@@ -185,7 +185,7 @@ const AllServices: React.FC = () => {
                   {/* Link */}
                   <div className="flex items-center text-sm font-light group-hover:text-blue-600 transition-colors duration-300">
                     <span className="mr-2">{t('services.learnMore')}</span>
-                    <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </div>
               </Link>
@@ -200,13 +200,15 @@ const AllServices: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-light mb-6">
+          <h2 className="text-3xl font-light mb-8">
             <span className="gradient-text-blue">{t('allServices.cta')}</span>
           </h2>
-          <Link to="/#contact" className="btn-minimal-blue">
-            {t('nav.contact')}
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
+          <div className="flex justify-center">
+            <Link to="/#contact" className="btn-minimal-blue">
+              <span>{t('nav.contact')}</span>
+              <ArrowUpRight />
+            </Link>
+          </div>
         </motion.div>
       </div>
     </div>

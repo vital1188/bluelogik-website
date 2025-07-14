@@ -147,7 +147,7 @@ const Services: React.FC = () => {
                   {/* Link */}
                   <div className="flex items-center text-sm font-light group-hover:text-blue-600 transition-colors duration-300">
                     <span className="mr-2">{t('services.learnMore')}</span>
-                    <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </div>
               </Link>
@@ -161,11 +161,11 @@ const Services: React.FC = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="flex justify-center mt-16"
         >
-          <Link to="/services" className="btn-minimal gradient-border-blue">
-            {t('services.viewAll')}
-            <ArrowUpRight className="h-4 w-4" />
+          <Link to="/services" className="btn-minimal">
+            <span>{t('services.viewAll')}</span>
+            <ArrowUpRight />
           </Link>
         </motion.div>
       </div>

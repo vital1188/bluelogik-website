@@ -137,11 +137,11 @@ const WhyAI: React.FC = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="flex justify-center mt-20"
         >
-          <a href="#contact" className="btn-minimal-blue group">
-            {t('whyai.cta')}
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <a href="#contact" className="btn-minimal-blue">
+            <span>{t('whyai.cta')}</span>
+            <ArrowRight />
           </a>
         </motion.div>
       </div>

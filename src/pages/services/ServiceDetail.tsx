@@ -389,10 +389,10 @@ const ServiceDetail: React.FC = () => {
           {/* Back button */}
           <Link 
             to="/#services" 
-            className="inline-flex items-center text-gray-600 hover:text-blue-600 mb-8 transition-colors"
+            className="inline-flex items-center text-sm text-gray-600 hover:text-blue-600 mb-8 transition-colors"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
-            {t('serviceDetail.backToServices')}
+            <span>{t('serviceDetail.backToServices')}</span>
           </Link>
 
           {/* Hero Section */}
@@ -465,13 +465,15 @@ const ServiceDetail: React.FC = () => {
             <p className="text-xl text-gray-600 mb-8">
               {t('serviceDetail.discuss')} {service.title} {t('serviceDetail.transform')}
             </p>
-            <Link 
-              to="/#contact" 
-              className="btn-minimal-blue inline-flex items-center"
-            >
-              {service.cta}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            <div className="flex justify-center">
+              <Link 
+                to="/#contact" 
+                className="btn-minimal-blue"
+              >
+                <span>{service.cta}</span>
+                <ArrowRight />
+              </Link>
+            </div>
           </div>
         </div>
       </main>

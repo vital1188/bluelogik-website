@@ -36,17 +36,17 @@ const Hero: React.FC = () => {
 
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap items-center gap-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <a href="#contact" className="btn-minimal-blue group">
-                {t('hero.cta')}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <a href="#contact" className="btn-minimal-blue">
+                <span>{t('hero.cta')}</span>
+                <ArrowRight />
               </a>
               <a href="#services" className="btn-minimal">
-                {t('hero.learnMore')}
+                <span>{t('hero.learnMore')}</span>
               </a>
             </motion.div>
           </motion.div>
