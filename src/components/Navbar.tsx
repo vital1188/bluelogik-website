@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -9,6 +9,7 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
@@ -21,11 +22,29 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navItems = [
-    { name: t('nav.home'), href: '/#home' },
-    { name: t('nav.services'), href: '/#services' },
-    { name: t('nav.whyAI'), href: '/#why-ai' },
-    { name: t('nav.contact'), href: '/#contact' },
+    { name: t('nav.home'), href: '/#home', section: 'home' },
+    { name: t('nav.services'), href: '/#services', section: 'services' },
+    { name: t('nav.whyAI'), href: '/#why-ai', section: 'why-ai' },
+    { name: t('nav.contact'), href: '/#contact', section: 'contact' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: typeof navItems[0]) => {
+    e.preventDefault();
+    
+    // If we're on the home page, just scroll to section
+    if (location.pathname === '/') {
+      const element = document.getElementById(item.section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Navigate to home page with hash
+      navigate(item.href);
+    }
+    
+    // Close mobile menu if open
+    setIsOpen(false);
+  };
 
   const languages = [
     { code: 'en', name: 'English', flag: '🇬🇧' },
@@ -93,12 +112,13 @@ const Navbar: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Link
-                  to={item.href}
-                  className="text-sm font-light tracking-wide hover:opacity-60 transition-opacity duration-300"
+                <a
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className="text-sm font-light tracking-wide hover:opacity-60 transition-opacity duration-300 cursor-pointer"
                 >
                   {item.name}
-                </Link>
+                </a>
               </motion.div>
             ))}
 
@@ -179,14 +199,14 @@ const Navbar: React.FC = () => {
           >
             <div className="container py-8 space-y-6">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.name}
-                  to={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-lg font-light"
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className="block text-lg font-light cursor-pointer"
                 >
                   {item.name}
-                </Link>
+                </a>
               ))}
 
               {/* Mobile Language Selector */}
