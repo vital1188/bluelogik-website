@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
 import Navbar from '../../components/Navbar';
@@ -18,6 +18,11 @@ interface ServiceInfo {
 
 const ServiceDetail: React.FC = () => {
   const { serviceId } = useParams<{ serviceId: string }>();
+  
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [serviceId]);
 
   // Service data mapping
   const services: Record<string, ServiceInfo> = {

@@ -4,6 +4,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import Background3D from './components/Background3D';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import ServiceDetail from './pages/services/ServiceDetail';
 
@@ -27,6 +28,7 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen text-gray-900 relative">
           {/* Subtle Background Animation */}
           <Background3D />
