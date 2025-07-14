@@ -130,17 +130,17 @@ const AllServices: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12 md:mb-16"
         >
-          <Link to="/" className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 mb-8 transition-colors">
-            <ArrowLeft className="h-4 w-4 mr-2" />
+          <Link to="/" className="inline-flex items-center text-xs md:text-sm text-gray-600 hover:text-gray-900 mb-6 md:mb-8 transition-colors">
+            <ArrowLeft className="h-3 w-3 md:h-4 md:w-4 mr-1.5 md:mr-2" />
             Back to Home
           </Link>
           
-          <h1 className="mb-6">
+          <h1 className="mb-4 md:mb-6">
             <span className="gradient-text-blue">All</span> {t('allServices.title').replace('All ', '')}
           </h1>
-          <p className="text-lg max-w-3xl">
+          <p className="text-base md:text-lg max-w-3xl">
             {t('allServices.subtitle')}
           </p>
         </motion.div>
@@ -150,13 +150,13 @@ const AllServices: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 mb-20"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 mb-12 md:mb-20"
         >
           {services.map((service) => (
             <motion.div
               key={service.id}
               variants={itemVariants}
-              className="bg-white p-8 group hover:bg-gradient-to-br hover:from-blue-50/50 hover:to-white transition-all duration-300 relative overflow-hidden"
+              className="bg-white p-6 md:p-8 group hover:bg-gradient-to-br hover:from-blue-50/50 hover:to-white transition-all duration-300 relative overflow-hidden"
             >
               <Link to={`/services/${service.id}`} className="block h-full">
                 <div className="flex flex-col h-full relative z-10">
@@ -164,21 +164,21 @@ const AllServices: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   
                   {/* Category */}
-                  <span className="text-xs text-gray-500 uppercase tracking-wider mb-4">
+                  <span className="text-xs text-gray-500 uppercase tracking-wider mb-3 md:mb-4">
                     {service.category}
                   </span>
                   
                   {/* Icon */}
-                  <div className="mb-6 relative">
+                  <div className="mb-4 md:mb-6 relative">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 scale-150" />
-                    <service.icon className="h-6 w-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300 relative z-10" />
+                    <service.icon className="h-5 w-5 md:h-6 md:w-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300 relative z-10" />
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-lg font-normal mb-3 group-hover:text-gray-900 transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-normal mb-2 md:mb-3 group-hover:text-gray-900 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mb-6 flex-grow">
+                  <p className="text-xs md:text-sm text-gray-500 mb-4 md:mb-6 flex-grow">
                     {service.description}
                   </p>
                   
@@ -200,7 +200,7 @@ const AllServices: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-light mb-8">
+          <h2 className="text-2xl md:text-3xl font-light mb-6 md:mb-8">
             <span className="gradient-text-blue">{t('allServices.cta')}</span>
           </h2>
           <div className="flex justify-center">

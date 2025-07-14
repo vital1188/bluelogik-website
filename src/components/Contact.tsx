@@ -117,18 +117,18 @@ const Contact: React.FC = () => {
                 <Clock className="h-4 w-4 text-blue-500" />
                 <h4 className="text-sm font-medium">{t('contact.hours.title')}</h4>
               </div>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
+              <div className="space-y-2 text-xs md:text-sm">
+                <div className="flex justify-between gap-4">
                   <span className="text-gray-600">{t('contact.hours.weekdays')}</span>
-                  <span className="text-gray-900">9:00 AM - 6:00 PM</span>
+                  <span className="text-gray-900 text-right">9:00 AM - 6:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-4">
                   <span className="text-gray-600">{t('contact.hours.saturday')}</span>
-                  <span className="text-gray-900">10:00 AM - 4:00 PM</span>
+                  <span className="text-gray-900 text-right">10:00 AM - 4:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-4">
                   <span className="text-gray-600">{t('contact.hours.sunday')}</span>
-                  <span className="text-gray-900">{t('contact.hours.closed')}</span>
+                  <span className="text-gray-900 text-right">{t('contact.hours.closed')}</span>
                 </div>
               </div>
             </motion.div>
@@ -153,13 +153,13 @@ const Contact: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
+                  className="text-center py-8 md:py-12"
                 >
-                  <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
-                  <h4 className="text-xl font-light mb-2">
+                  <CheckCircle className="h-10 w-10 md:h-12 md:w-12 text-green-600 mx-auto mb-3 md:mb-4" />
+                  <h4 className="text-lg md:text-xl font-light mb-2">
                     {t('contact.form.success')}
                   </h4>
-                  <p className="text-gray-600">
+                  <p className="text-sm md:text-base text-gray-600">
                     {t('contact.form.successDesc')}
                   </p>
                 </motion.div>
@@ -255,10 +255,10 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               className="mt-6 md:mt-8 p-4 md:p-6 gradient-border-blue"
             >
-              <h4 className="text-sm font-medium mb-2">
+              <h4 className="text-xs md:text-sm font-medium mb-1 md:mb-2">
                 {t('contact.quick.title')}
               </h4>
-              <p className="text-sm text-gray-600">
+              <p className="text-xs md:text-sm text-gray-600">
                 {t('contact.quick.desc')}
               </p>
             </motion.div>

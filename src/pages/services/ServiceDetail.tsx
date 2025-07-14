@@ -389,47 +389,47 @@ const ServiceDetail: React.FC = () => {
           {/* Back button */}
           <Link 
             to="/#services" 
-            className="inline-flex items-center text-sm text-gray-600 hover:text-blue-600 mb-8 transition-colors"
+            className="inline-flex items-center text-xs md:text-sm text-gray-600 hover:text-blue-600 mb-6 md:mb-8 transition-colors"
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
+            <ArrowLeft className="h-3 w-3 md:h-4 md:w-4 mr-1.5 md:mr-2" />
             <span>{t('serviceDetail.backToServices')}</span>
           </Link>
 
           {/* Hero Section */}
-          <div className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-thin mb-6">
+          <div className="mb-12 md:mb-16">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-thin mb-4 md:mb-6">
               <span className="gradient-text-blue">AI</span> {service.title.replace('AI ', '').replace('AI-', '')}
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl">
+            <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl">
               {service.description}
             </p>
           </div>
 
           {/* Features Section */}
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
             <div>
-              <h2 className="text-2xl font-light mb-6">
+              <h2 className="text-xl md:text-2xl font-light mb-4 md:mb-6">
                 <span className="gradient-text-blue">{t('serviceDetail.keyFeatures')}</span>
               </h2>
-              <ul className="space-y-4">
+              <ul className="space-y-3 md:space-y-4">
                 {service.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
+                    <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-blue-500 mr-2 md:mr-3 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base text-gray-700">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h2 className="text-2xl font-light mb-6">
+              <h2 className="text-xl md:text-2xl font-light mb-4 md:mb-6">
                 <span className="gradient-text-blue">{t('serviceDetail.benefits')}</span>
               </h2>
-              <ul className="space-y-4">
+              <ul className="space-y-3 md:space-y-4">
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{benefit}</span>
+                    <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-blue-600 mr-2 md:mr-3 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base text-gray-700">{benefit}</span>
                   </li>
                 ))}
               </ul>
@@ -437,19 +437,19 @@ const ServiceDetail: React.FC = () => {
           </div>
 
           {/* Process Section */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-light mb-8 text-center">
+          <div className="mb-12 md:mb-16">
+            <h2 className="text-xl md:text-2xl font-light mb-6 md:mb-8 text-center">
               <span className="gradient-text-blue">{t('serviceDetail.process')}</span>
             </h2>
-            <div className="grid md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-4">
               {service.process.map((step, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="gradient-text-blue font-medium">{index + 1}</span>
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <span className="gradient-text-blue font-medium text-sm md:text-base">{index + 1}</span>
                   </div>
-                  <p className="text-sm text-gray-700">{step}</p>
+                  <p className="text-xs md:text-sm text-gray-700">{step}</p>
                   {index < service.process.length - 1 && (
-                    <ArrowRight className="h-5 w-5 text-gray-400 mx-auto mt-4 hidden md:block" />
+                    <ArrowRight className="h-4 w-4 md:h-5 md:w-5 text-gray-400 mx-auto mt-3 md:mt-4 hidden md:block" />
                   )}
                 </div>
               ))}
@@ -457,12 +457,12 @@ const ServiceDetail: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-gradient-to-br from-gray-50 to-blue-50/20 p-12 relative overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-3xl" />
-            <h2 className="text-3xl font-light mb-4">
+          <div className="text-center bg-gradient-to-br from-gray-50 to-blue-50/20 p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-32 md:w-40 h-32 md:h-40 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-3xl" />
+            <h2 className="text-2xl md:text-3xl font-light mb-3 md:mb-4">
               <span className="gradient-text-blue">{t('serviceDetail.ready')}</span>
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 px-4 md:px-0">
               {t('serviceDetail.discuss')} {service.title} {t('serviceDetail.transform')}
             </p>
             <div className="flex justify-center">

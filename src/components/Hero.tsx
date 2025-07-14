@@ -56,14 +56,14 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="relative mt-12 lg:mt-0"
+            className="relative mt-12 lg:mt-0 order-first lg:order-last"
           >
-            <div className="aspect-square relative max-w-md mx-auto lg:max-w-none">
+            <div className="aspect-square relative max-w-sm sm:max-w-md mx-auto lg:max-w-none">
               {/* Minimal geometric design */}
               <svg
                 viewBox="0 0 400 400"
                 className="w-full h-full"
-                style={{ maxWidth: '500px', margin: '0 auto', display: 'block' }}
+                style={{ maxWidth: '400px', margin: '0 auto', display: 'block' }}
               >
                 {/* Gradient definition */}
                 <defs>
@@ -284,8 +284,8 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Subtle background elements */}
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-full blur-3xl opacity-30 -z-10 transform translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-blue-50 to-transparent rounded-full blur-3xl opacity-20 -z-10 transform -translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-64 sm:w-72 md:w-96 h-64 sm:h-72 md:h-96 bg-gradient-to-br from-blue-50 to-blue-100 rounded-full blur-3xl opacity-30 -z-10 transform translate-x-1/2 -translate-y-1/2 hidden sm:block" />
+      <div className="absolute bottom-0 left-0 w-48 sm:w-64 md:w-72 h-48 sm:h-64 md:h-72 bg-gradient-to-tr from-blue-50 to-transparent rounded-full blur-3xl opacity-20 -z-10 transform -translate-x-1/2 translate-y-1/2 hidden sm:block" />
     </section>
   );
 };
