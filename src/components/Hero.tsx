@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
                   </linearGradient>
                 </defs>
                 
-                {/* Animated circles */}
+                {/* Animated circles with sublime effects */}
                 <motion.circle
                   cx="200"
                   cy="200"
@@ -82,9 +82,15 @@ const Hero: React.FC = () => {
                   stroke="url(#blueGradient)"
                   strokeWidth="1"
                   strokeOpacity="0.3"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
+                  initial={{ pathLength: 0, rotate: -90 }}
+                  animate={{ 
+                    pathLength: 1,
+                    rotate: 270,
+                  }}
+                  transition={{ 
+                    pathLength: { duration: 3, ease: "easeInOut" },
+                    rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+                  }}
                 />
                 <motion.circle
                   cx="200"
@@ -94,9 +100,15 @@ const Hero: React.FC = () => {
                   stroke="url(#blueGradient)"
                   strokeWidth="1"
                   strokeOpacity="0.2"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, delay: 0.2, ease: "easeInOut" }}
+                  initial={{ pathLength: 0, rotate: 90 }}
+                  animate={{ 
+                    pathLength: 1,
+                    rotate: -270,
+                  }}
+                  transition={{ 
+                    pathLength: { duration: 3, delay: 0.3, ease: "easeInOut" },
+                    rotate: { duration: 25, repeat: Infinity, ease: "linear" }
+                  }}
                 />
                 <motion.circle
                   cx="200"
@@ -106,23 +118,33 @@ const Hero: React.FC = () => {
                   stroke="url(#blueGradient)"
                   strokeWidth="1"
                   strokeOpacity="0.1"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, delay: 0.4, ease: "easeInOut" }}
+                  initial={{ pathLength: 0, rotate: -45 }}
+                  animate={{ 
+                    pathLength: 1,
+                    rotate: 315,
+                  }}
+                  transition={{ 
+                    pathLength: { duration: 3, delay: 0.6, ease: "easeInOut" },
+                    rotate: { duration: 30, repeat: Infinity, ease: "linear" }
+                  }}
                 />
                 
-                {/* Center dot */}
+                {/* Center dot with pulse */}
                 <motion.circle
                   cx="200"
                   cy="200"
                   r="3"
                   fill="url(#blueGradient)"
                   initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1 }}
+                  animate={{ scale: [0, 1, 1.2, 1] }}
+                  transition={{ 
+                    duration: 1.5, 
+                    delay: 1,
+                    times: [0, 0.6, 0.8, 1]
+                  }}
                 />
                 
-                {/* Gradient glow */}
+                {/* Gradient glow with breathing effect */}
                 <motion.circle
                   cx="200"
                   cy="200"
@@ -131,22 +153,102 @@ const Hero: React.FC = () => {
                   fillOpacity="0.05"
                   filter="blur(40px)"
                   initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1.2, opacity: 1 }}
-                  transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+                  animate={{ 
+                    scale: [0.8, 1.2, 0.8],
+                    opacity: [0, 1, 0.3]
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
                 />
                 
-                {/* Orbiting dots */}
+                {/* Additional floating particles */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.circle
+                    key={i}
+                    cx="200"
+                    cy="200"
+                    r="1"
+                    fill="#0066ff"
+                    initial={{ 
+                      x: 0, 
+                      y: 0,
+                      opacity: 0
+                    }}
+                    animate={{ 
+                      x: [0, (i - 1) * 80],
+                      y: [0, Math.sin(i) * 80],
+                      opacity: [0, 0.6, 0]
+                    }}
+                    transition={{ 
+                      duration: 3,
+                      delay: i * 0.5,
+                      repeat: Infinity,
+                      ease: "easeOut"
+                    }}
+                  />
+                ))}
+                
+                {/* Orbiting dots with trail effect */}
                 <motion.g
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
-                  <circle cx="200" cy="50" r="2" fill="#0066ff" />
+                  <motion.circle 
+                    cx="200" 
+                    cy="50" 
+                    r="2" 
+                    fill="#0066ff"
+                    animate={{ 
+                      scale: [1, 1.5, 1],
+                      opacity: [1, 0.5, 1]
+                    }}
+                    transition={{ 
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  {/* Trail effect */}
+                  <motion.circle 
+                    cx="200" 
+                    cy="50" 
+                    r="1" 
+                    fill="#0066ff"
+                    opacity="0.3"
+                    initial={{ rotate: -10 }}
+                  />
                 </motion.g>
                 <motion.g
                   animate={{ rotate: -360 }}
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >
-                  <circle cx="350" cy="200" r="2" fill="#4d94ff" />
+                  <motion.circle 
+                    cx="350" 
+                    cy="200" 
+                    r="2" 
+                    fill="#4d94ff"
+                    animate={{ 
+                      scale: [1, 1.5, 1],
+                      opacity: [1, 0.5, 1]
+                    }}
+                    transition={{ 
+                      duration: 2.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  {/* Trail effect */}
+                  <motion.circle 
+                    cx="350" 
+                    cy="200" 
+                    r="1" 
+                    fill="#4d94ff"
+                    opacity="0.3"
+                    initial={{ rotate: 10 }}
+                  />
                 </motion.g>
               </svg>
             </div>

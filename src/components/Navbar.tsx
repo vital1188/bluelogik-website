@@ -47,14 +47,40 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="relative group">
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="flex items-center space-x-2"
             >
-              <span className="text-2xl font-thin tracking-wider">
-                <span className="gradient-text-blue">Blue</span>Logik
+              <span className="text-2xl font-thin tracking-wider relative">
+                <motion.span 
+                  className="gradient-text-blue inline-block"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  Blue
+                </motion.span>
+                <motion.span 
+                  className="inline-block"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  Logik
+                </motion.span>
               </span>
+              {/* Animated underline */}
+              <motion.div
+                className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-blue-500 to-transparent"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+              />
             </motion.div>
           </Link>
 
