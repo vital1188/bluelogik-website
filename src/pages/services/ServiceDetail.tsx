@@ -389,16 +389,16 @@ const ServiceDetail: React.FC = () => {
           {/* Back button */}
           <Link 
             to="/#services" 
-            className="inline-flex items-center text-purple-600 hover:text-purple-700 mb-8"
+            className="inline-flex items-center text-gray-600 hover:text-blue-600 mb-8 transition-colors"
           >
-            <ArrowLeft className="h-5 w-5 mr-2" />
+            <ArrowLeft className="h-4 w-4 mr-2" />
             {t('serviceDetail.backToServices')}
           </Link>
 
           {/* Hero Section */}
           <div className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              {service.title}
+            <h1 className="text-4xl md:text-5xl font-thin mb-6">
+              <span className="gradient-text-blue">AI</span> {service.title.replace('AI ', '').replace('AI-', '')}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl">
               {service.description}
@@ -408,11 +408,13 @@ const ServiceDetail: React.FC = () => {
           {/* Features Section */}
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <div>
-              <h2 className="text-2xl font-bold mb-6">{t('serviceDetail.keyFeatures')}</h2>
+              <h2 className="text-2xl font-light mb-6">
+                <span className="gradient-text-blue">{t('serviceDetail.keyFeatures')}</span>
+              </h2>
               <ul className="space-y-4">
                 {service.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
@@ -420,11 +422,13 @@ const ServiceDetail: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-6">{t('serviceDetail.benefits')}</h2>
+              <h2 className="text-2xl font-light mb-6">
+                <span className="gradient-text-blue">{t('serviceDetail.benefits')}</span>
+              </h2>
               <ul className="space-y-4">
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
-                    <CheckCircle className="h-6 w-6 text-purple-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{benefit}</span>
                   </li>
                 ))}
@@ -434,12 +438,14 @@ const ServiceDetail: React.FC = () => {
 
           {/* Process Section */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-8 text-center">{t('serviceDetail.process')}</h2>
+            <h2 className="text-2xl font-light mb-8 text-center">
+              <span className="gradient-text-blue">{t('serviceDetail.process')}</span>
+            </h2>
             <div className="grid md:grid-cols-5 gap-4">
               {service.process.map((step, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-purple-600 font-bold">{index + 1}</span>
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="gradient-text-blue font-medium">{index + 1}</span>
                   </div>
                   <p className="text-sm text-gray-700">{step}</p>
                   {index < service.process.length - 1 && (
@@ -451,17 +457,20 @@ const ServiceDetail: React.FC = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center bg-gray-50 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold mb-4">{t('serviceDetail.ready')}</h2>
+          <div className="text-center bg-gradient-to-br from-gray-50 to-blue-50/20 p-12 relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-3xl" />
+            <h2 className="text-3xl font-light mb-4">
+              <span className="gradient-text-blue">{t('serviceDetail.ready')}</span>
+            </h2>
             <p className="text-xl text-gray-600 mb-8">
               {t('serviceDetail.discuss')} {service.title} {t('serviceDetail.transform')}
             </p>
             <Link 
               to="/#contact" 
-              className="btn-primary inline-flex items-center"
+              className="btn-minimal-blue inline-flex items-center"
             >
               {service.cta}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
         </div>

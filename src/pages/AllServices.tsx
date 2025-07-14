@@ -137,7 +137,9 @@ const AllServices: React.FC = () => {
             Back to Home
           </Link>
           
-          <h1 className="mb-6">{t('allServices.title')}</h1>
+          <h1 className="mb-6">
+            <span className="gradient-text-blue">All</span> {t('allServices.title').replace('All ', '')}
+          </h1>
           <p className="text-lg max-w-3xl">
             {t('allServices.subtitle')}
           </p>
@@ -154,18 +156,22 @@ const AllServices: React.FC = () => {
             <motion.div
               key={service.id}
               variants={itemVariants}
-              className="bg-white p-8 group hover:bg-gray-50 transition-colors duration-300"
+              className="bg-white p-8 group hover:bg-gradient-to-br hover:from-blue-50/50 hover:to-white transition-all duration-300 relative overflow-hidden"
             >
               <Link to={`/services/${service.id}`} className="block h-full">
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full relative z-10">
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                  
                   {/* Category */}
                   <span className="text-xs text-gray-500 uppercase tracking-wider mb-4">
                     {service.category}
                   </span>
                   
                   {/* Icon */}
-                  <div className="mb-6">
-                    <service.icon className="h-6 w-6 text-gray-400 group-hover:text-gray-900 transition-colors duration-300" />
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 scale-150" />
+                    <service.icon className="h-6 w-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300 relative z-10" />
                   </div>
                   
                   {/* Content */}
@@ -177,7 +183,7 @@ const AllServices: React.FC = () => {
                   </p>
                   
                   {/* Link */}
-                  <div className="flex items-center text-sm font-light">
+                  <div className="flex items-center text-sm font-light group-hover:text-blue-600 transition-colors duration-300">
                     <span className="mr-2">{t('services.learnMore')}</span>
                     <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
@@ -194,8 +200,10 @@ const AllServices: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <h2 className="text-3xl font-light mb-6">{t('allServices.cta')}</h2>
-          <Link to="/#contact" className="btn-minimal-dark">
+          <h2 className="text-3xl font-light mb-6">
+            <span className="gradient-text-blue">{t('allServices.cta')}</span>
+          </h2>
+          <Link to="/#contact" className="btn-minimal-blue">
             {t('nav.contact')}
             <ArrowUpRight className="h-4 w-4" />
           </Link>
