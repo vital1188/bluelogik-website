@@ -164,28 +164,16 @@ p {
 
 /* Blue accent button */
 .btn-minimal-blue {
-  background: var(--gradient-blue);
-  color: var(--background);
-  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
   position: relative;
-}
-
-.btn-minimal-blue::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  background: var(--gradient-blue);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.btn-minimal-blue:hover::before {
-  opacity: 0.2;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-minimal-blue:hover {
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-1px);
 }
 
