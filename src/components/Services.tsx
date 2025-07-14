@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   Zap, TrendingUp, Megaphone, Share2, 
@@ -12,6 +13,7 @@ const Services: React.FC = () => {
 
   const services = [
     {
+      id: 'business-optimization',
       icon: Zap,
       titleKey: 'services.optimization.title',
       descKey: 'services.optimization.desc',
@@ -19,6 +21,7 @@ const Services: React.FC = () => {
       bgColor: 'bg-blue-50',
     },
     {
+      id: 'sales-growth',
       icon: TrendingUp,
       titleKey: 'services.sales.title',
       descKey: 'services.sales.desc',
@@ -26,6 +29,7 @@ const Services: React.FC = () => {
       bgColor: 'bg-purple-50',
     },
     {
+      id: 'marketing-strategies',
       icon: Megaphone,
       titleKey: 'services.marketing.title',
       descKey: 'services.marketing.desc',
@@ -33,6 +37,7 @@ const Services: React.FC = () => {
       bgColor: 'bg-orange-50',
     },
     {
+      id: 'social-media',
       icon: Share2,
       titleKey: 'services.social.title',
       descKey: 'services.social.desc',
@@ -40,6 +45,7 @@ const Services: React.FC = () => {
       bgColor: 'bg-green-50',
     },
     {
+      id: 'data-analysis',
       icon: BarChart3,
       titleKey: 'services.analysis.title',
       descKey: 'services.analysis.desc',
@@ -47,6 +53,7 @@ const Services: React.FC = () => {
       bgColor: 'bg-indigo-50',
     },
     {
+      id: 'integration',
       icon: Puzzle,
       titleKey: 'services.integration.title',
       descKey: 'services.integration.desc',
@@ -54,6 +61,7 @@ const Services: React.FC = () => {
       bgColor: 'bg-yellow-50',
     },
     {
+      id: 'web-development',
       icon: Code2,
       titleKey: 'services.webdev.title',
       descKey: 'services.webdev.desc',
@@ -61,6 +69,7 @@ const Services: React.FC = () => {
       bgColor: 'bg-pink-50',
     },
     {
+      id: 'web-optimization',
       icon: Search,
       titleKey: 'services.webopt.title',
       descKey: 'services.webopt.desc',
@@ -108,13 +117,13 @@ const Services: React.FC = () => {
                 {t(service.descKey)}
               </p>
               
-              <a
-                href="#"
+              <Link
+                to={`/services/${service.id}`}
                 className={`inline-flex items-center text-sm font-medium ${service.color} hover:underline`}
               >
                 {t('services.learnMore')}
                 <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>

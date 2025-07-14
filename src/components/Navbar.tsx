@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -8,6 +9,8 @@ const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [showLangMenu, setShowLangMenu] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,33 +43,51 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg blur opacity-50" />
-              <div className="relative bg-gradient-to-r from-purple-500 to-purple-700 p-2 rounded-lg">
-                <Sparkles className="h-5 w-5 text-white" />
+          <Link to="/">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="flex items-center gap-2"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg blur opacity-50" />
+                <div className="relative bg-gradient-to-r from-purple-500 to-purple-700 p-2 rounded-lg">
+                  <Sparkles className="h-5 w-5 text-white" />
+                </div>
               </div>
-            </div>
-            <span className="text-xl font-bold text-gray-900">BlueLogik</span>
-          </motion.div>
+              <span className="text-xl font-bold text-gray-900">BlueLogik</span>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item.href}
-                href={item.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
-              >
-                {item.label}
-              </motion.a>
+              isHomePage ? (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
+                >
+                  {item.label}
+                </motion.a>
+              ) : (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    to={`/${item.href}`}
+                    className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              )
             ))}
           </div>
 
@@ -113,13 +134,26 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* CTA Button */}
-            <motion.button
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="hidden md:block btn-primary text-sm"
-            >
-              {t('nav.contact')}
-            </motion.button>
+            {isHomePage ? (
+              <motion.a
+                href="#contact"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="hidden md:block btn-primary text-sm"
+              >
+                {t('nav.contact')}
+              </motion.a>
+            ) : (
+              <Link to="/#contact">
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="hidden md:block btn-primary text-sm"
+                >
+                  {t('nav.contact')}
+                </motion.button>
+              </Link>
+            )}
 
             {/* Mobile Menu Button */}
             <button
