@@ -78,8 +78,8 @@ const WhyAI: React.FC = () => {
               className="flex gap-6"
             >
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                  <benefit.icon className="h-5 w-5 text-gray-600" />
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-50 to-white flex items-center justify-center">
+                  <benefit.icon className="h-5 w-5 text-blue-600" />
                 </div>
               </div>
               <div className="flex-1">
@@ -119,7 +119,7 @@ const WhyAI: React.FC = () => {
                 viewport={{ once: true }}
                 className="flex items-center gap-3"
               >
-                <CheckCircle className="h-4 w-4 text-gray-400 flex-shrink-0" />
+                <CheckCircle className="h-4 w-4 text-blue-500 flex-shrink-0" />
                 <span className="text-gray-700">{feature}</span>
               </motion.div>
             ))}
@@ -134,7 +134,7 @@ const WhyAI: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mt-20"
         >
-          <a href="#contact" className="btn-minimal-dark group">
+          <a href="#contact" className="btn-minimal-blue group">
             {t('whyai.cta')}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>

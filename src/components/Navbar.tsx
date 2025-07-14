@@ -52,7 +52,9 @@ const Navbar: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="flex items-center space-x-2"
             >
-              <span className="text-2xl font-thin tracking-wider">BlueLogik</span>
+              <span className="text-2xl font-thin tracking-wider">
+                <span className="gradient-text-blue">Blue</span>Logik
+              </span>
             </motion.div>
           </Link>
 

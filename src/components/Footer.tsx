@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           {/* Logo & Copyright */}
           <div>
             <Link to="/" className="text-xl font-thin tracking-wider inline-block mb-4">
-              BlueLogik
+              <span className="gradient-text-blue">Blue</span>Logik
             </Link>
             <p className="text-sm text-gray-500">
               © {currentYear} BlueLogik. {t('footer.rights')}

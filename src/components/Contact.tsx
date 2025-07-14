@@ -88,8 +88,8 @@ const Contact: React.FC = () => {
                   viewport={{ once: true }}
                   className="flex items-start gap-4 group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 group-hover:bg-gray-200 transition-colors">
-                    <info.icon className="h-4 w-4 text-gray-600" />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-50 to-gray-50 flex items-center justify-center flex-shrink-0 group-hover:from-blue-100 group-hover:to-gray-100 transition-all">
+                    <info.icon className="h-4 w-4 text-blue-600" />
                   </div>
                   <div>
                     <h4 className="text-sm text-gray-500 mb-1">
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
               className="border-t border-gray-100 pt-8"
             >
               <div className="flex items-center gap-3 mb-4">
-                <Clock className="h-4 w-4 text-gray-400" />
+                <Clock className="h-4 w-4 text-blue-500" />
                 <h4 className="text-sm font-medium">{t('contact.hours.title')}</h4>
               </div>
               <div className="space-y-2 text-sm">
@@ -224,7 +224,7 @@ const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="btn-minimal-dark w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="btn-minimal-blue w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>

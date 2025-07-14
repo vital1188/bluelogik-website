@@ -115,7 +115,7 @@ const Services: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 relative overflow-hidden"
         >
           {services.map((service) => (
             <motion.div
@@ -127,7 +127,7 @@ const Services: React.FC = () => {
                 <div className="flex flex-col h-full">
                   {/* Icon */}
                   <div className="mb-6">
-                    <service.icon className="h-6 w-6 text-gray-400 group-hover:text-gray-900 transition-colors duration-300" />
+                    <service.icon className="h-6 w-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
                   </div>
                   
                   {/* Content */}
@@ -139,7 +139,7 @@ const Services: React.FC = () => {
                   </p>
                   
                   {/* Link */}
-                  <div className="flex items-center text-sm font-light">
+                  <div className="flex items-center text-sm font-light group-hover:text-blue-600 transition-colors duration-300">
                     <span className="mr-2">{t('services.learnMore')}</span>
                     <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
