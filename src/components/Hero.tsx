@@ -7,9 +7,9 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="home" className="min-h-screen flex items-center relative">
+    <section id="home" className="min-h-screen flex items-center relative py-20 lg:py-0">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h1 
-              className="mb-6 leading-tight"
+              className="mb-4 md:mb-6 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-lg mb-12 max-w-xl"
+              className="text-base md:text-lg mb-8 md:mb-12 max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -36,16 +36,16 @@ const Hero: React.FC = () => {
 
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-wrap items-center gap-6"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <a href="#contact" className="btn-minimal-blue">
+              <a href="#contact" className="btn-minimal-blue w-full sm:w-auto text-center">
                 <span>{t('hero.cta')}</span>
                 <ArrowRight />
               </a>
-              <a href="#services" className="btn-minimal">
+              <a href="#services" className="btn-minimal w-full sm:w-auto text-center">
                 <span>{t('hero.learnMore')}</span>
               </a>
             </motion.div>
@@ -56,9 +56,9 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="relative"
+            className="relative mt-12 lg:mt-0"
           >
-            <div className="aspect-square relative">
+            <div className="aspect-square relative max-w-md mx-auto lg:max-w-none">
               {/* Minimal geometric design */}
               <svg
                 viewBox="0 0 400 400"
@@ -257,7 +257,7 @@ const Hero: React.FC = () => {
 
         {/* Minimal Stats */}
         <motion.div 
-          className="grid grid-cols-3 gap-8 mt-24 pt-24 border-t border-gray-100"
+          className="grid grid-cols-3 gap-4 md:gap-8 mt-16 md:mt-24 pt-16 md:pt-24 border-t border-gray-100"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -274,8 +274,8 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
               className="text-center"
             >
-              <div className="text-3xl font-thin mb-2 gradient-text-blue">{stat.value}</div>
-              <div className="text-sm text-gray-500 uppercase tracking-wider">
+              <div className="text-2xl md:text-3xl font-thin mb-1 md:mb-2 gradient-text-blue">{stat.value}</div>
+              <div className="text-xs md:text-sm text-gray-500 uppercase tracking-wider">
                 {stat.label}
               </div>
             </motion.div>

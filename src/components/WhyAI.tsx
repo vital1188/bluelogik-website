@@ -61,18 +61,18 @@ const WhyAI: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-3xl mb-20"
+          className="max-w-3xl mb-12 md:mb-20"
         >
-          <h2 className="mb-6">
+          <h2 className="mb-4 md:mb-6">
             <span className="gradient-text-blue">Why</span> {t('whyai.title').replace('Why ', '')}
           </h2>
-          <p className="text-lg">
+          <p className="text-base md:text-lg">
             {t('whyai.subtitle')}
           </p>
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 gap-16 mb-24">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-16 md:mb-24">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
@@ -80,23 +80,23 @@ const WhyAI: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex gap-6"
+              className="flex gap-4 md:gap-6"
             >
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-50 to-white flex items-center justify-center">
-                  <benefit.icon className="h-5 w-5 text-blue-600" />
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-blue-50 to-white flex items-center justify-center">
+                  <benefit.icon className="h-4 w-4 md:h-5 md:w-5 text-blue-600" />
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-normal mb-3">
+                <h3 className="text-lg md:text-xl font-normal mb-2 md:mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4">
                   {benefit.description}
                 </p>
-                <div className="flex items-baseline gap-3">
-                  <span className="text-2xl font-thin gradient-text-blue">{benefit.stat}</span>
-                  <span className="text-sm text-gray-500">{benefit.statLabel}</span>
+                <div className="flex items-baseline gap-2 md:gap-3">
+                  <span className="text-xl md:text-2xl font-thin gradient-text-blue">{benefit.stat}</span>
+                  <span className="text-xs md:text-sm text-gray-500">{benefit.statLabel}</span>
                 </div>
               </div>
             </motion.div>
@@ -109,12 +109,12 @@ const WhyAI: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="border-t border-blue-100 pt-20"
+          className="border-t border-blue-100 pt-12 md:pt-20"
         >
-          <h3 className="text-2xl font-light mb-12 text-center">
+          <h3 className="text-xl md:text-2xl font-light mb-8 md:mb-12 text-center">
             <span className="gradient-text-blue">{t('whyai.features.title')}</span>
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -122,10 +122,10 @@ const WhyAI: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-3"
+                className="flex items-center gap-2 md:gap-3"
               >
                 <CheckCircle className="h-4 w-4 text-blue-500 flex-shrink-0" />
-                <span className="text-gray-700">{feature}</span>
+                <span className="text-sm md:text-base text-gray-700">{feature}</span>
               </motion.div>
             ))}
           </div>
@@ -137,7 +137,7 @@ const WhyAI: React.FC = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex justify-center mt-20"
+          className="flex justify-center mt-12 md:mt-20"
         >
           <a href="#contact" className="btn-minimal-blue">
             <span>{t('whyai.cta')}</span>

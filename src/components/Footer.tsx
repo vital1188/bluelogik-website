@@ -20,25 +20,25 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="border-t border-gray-100">
-      <div className="container py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-start">
+      <div className="container py-8 md:py-12">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
           {/* Logo & Copyright */}
           <div>
-            <Link to="/" className="text-xl font-thin tracking-wider inline-block mb-4">
+            <Link to="/" className="text-lg md:text-xl font-thin tracking-wider inline-block mb-3 md:mb-4">
               <span className="gradient-text-blue">Blue</span>Logik
             </Link>
-            <p className="text-sm text-gray-500">
+            <p className="text-xs md:text-sm text-gray-500">
               © {currentYear} BlueLogik. {t('footer.rights')}
             </p>
           </div>
 
           {/* Navigation */}
-          <nav className="flex flex-wrap gap-x-8 gap-y-2">
+          <nav className="flex flex-wrap gap-x-4 md:gap-x-8 gap-y-2">
             {footerLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-xs md:text-sm text-gray-600 hover:text-gray-900 transition-colors"
               >
                 {link.name}
               </Link>
@@ -46,12 +46,12 @@ const Footer: React.FC = () => {
           </nav>
 
           {/* Legal */}
-          <div className="flex gap-6 md:justify-end">
+          <div className="flex gap-4 md:gap-6 md:justify-end">
             {legalLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                className="text-xs md:text-sm text-gray-500 hover:text-gray-900 transition-colors"
               >
                 {link.name}
               </a>

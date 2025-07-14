@@ -101,12 +101,12 @@ const Services: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
-          <h2 className="mb-4">
+          <h2 className="mb-3 md:mb-4">
             <span className="gradient-text-blue">Our</span> {t('services.title').replace('Our ', '')}
           </h2>
-          <p className="text-lg max-w-2xl mx-auto">
+          <p className="text-base md:text-lg max-w-2xl mx-auto px-4 md:px-0">
             {t('services.subtitle')}
           </p>
         </motion.div>
@@ -117,13 +117,13 @@ const Services: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 relative overflow-hidden"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 relative overflow-hidden"
         >
           {services.map((service) => (
             <motion.div
               key={service.id}
               variants={itemVariants}
-              className="bg-white p-8 group hover:bg-gradient-to-br hover:from-blue-50/50 hover:to-white transition-all duration-300 relative overflow-hidden"
+              className="bg-white p-6 md:p-8 group hover:bg-gradient-to-br hover:from-blue-50/50 hover:to-white transition-all duration-300 relative overflow-hidden"
             >
               <Link to={`/services/${service.id}`} className="block h-full">
                 <div className="flex flex-col h-full relative z-10">
@@ -137,10 +137,10 @@ const Services: React.FC = () => {
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-lg font-normal mb-3 group-hover:text-gray-900 transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-normal mb-2 md:mb-3 group-hover:text-gray-900 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mb-6 flex-grow">
+                  <p className="text-sm text-gray-500 mb-4 md:mb-6 flex-grow">
                     {service.description}
                   </p>
                   
@@ -161,7 +161,7 @@ const Services: React.FC = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="flex justify-center mt-16"
+          className="flex justify-center mt-12 md:mt-16"
         >
           <Link to="/services" className="btn-minimal">
             <span>{t('services.viewAll')}</span>

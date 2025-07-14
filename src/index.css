@@ -119,9 +119,21 @@ p {
   padding: 8rem 0;
 }
 
+@media (max-width: 1024px) {
+  .section-padding {
+    padding: 6rem 0;
+  }
+}
+
 @media (max-width: 768px) {
   .section-padding {
     padding: 4rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-padding {
+    padding: 3rem 0;
   }
 }
 
@@ -146,6 +158,14 @@ p {
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .btn-minimal {
+    padding: 0.875rem 2rem;
+    font-size: 0.75rem;
+    min-height: 44px;
+  }
 }
 
 .btn-minimal::before {
@@ -207,6 +227,14 @@ p {
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .btn-minimal-blue {
+    padding: 0.875rem 2rem;
+    font-size: 0.75rem;
+    min-height: 44px;
+  }
 }
 
 .btn-minimal-blue::before {
@@ -363,6 +391,20 @@ p {
 }
 
 /* Responsive Typography */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  }
+  
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+}
+
 @media (max-width: 768px) {
   body {
     font-size: 0.9375rem;
@@ -370,6 +412,49 @@ p {
   
   .container, .container-wide {
     padding: 0 1.5rem;
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  
+  h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  }
+  
+  p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 0.875rem;
+  }
+  
+  .container, .container-wide {
+    padding: 0 1rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  p {
+    font-size: 0.875rem;
   }
 }
 

@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="section-padding">
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -71,15 +71,15 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-6">
+            <h2 className="mb-4 md:mb-6">
               <span className="gradient-text-blue">Get</span> {t('contact.title').replace('Get ', '')}
             </h2>
-            <p className="text-lg mb-12">
+            <p className="text-base md:text-lg mb-8 md:mb-12">
               {t('contact.subtitle')}
             </p>
 
             {/* Contact Info */}
-            <div className="space-y-8 mb-12">
+            <div className="space-y-6 md:space-y-8 mb-8 md:mb-12">
               {contactInfo.map((info, index) => (
                 <motion.a
                   key={index}
@@ -94,10 +94,10 @@ const Contact: React.FC = () => {
                     <info.icon className="h-4 w-4 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="text-sm text-gray-500 mb-1">
+                    <h4 className="text-xs md:text-sm text-gray-500 mb-1">
                       {info.label}
                     </h4>
-                    <p className="text-gray-900">
+                    <p className="text-sm md:text-base text-gray-900">
                       {info.value}
                     </p>
                   </div>
@@ -141,11 +141,11 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gradient-to-br from-gray-50 to-blue-50/20 p-12 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-gray-50 to-blue-50/20 p-6 md:p-8 lg:p-12 relative overflow-hidden">
               {/* Gradient decoration */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-3xl" />
               
-              <h3 className="text-2xl font-light mb-8">
+              <h3 className="text-xl md:text-2xl font-light mb-6 md:mb-8">
                 <span className="gradient-text-blue">{t('contact.form.title')}</span>
               </h3>
               
@@ -164,10 +164,10 @@ const Contact: React.FC = () => {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm text-gray-600 mb-2">
+                      <label htmlFor="name" className="block text-xs md:text-sm text-gray-600 mb-2">
                         {t('contact.form.name')} *
                       </label>
                       <input
@@ -181,7 +181,7 @@ const Contact: React.FC = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm text-gray-600 mb-2">
+                      <label htmlFor="email" className="block text-xs md:text-sm text-gray-600 mb-2">
                         {t('contact.form.email')} *
                       </label>
                       <input
@@ -197,7 +197,7 @@ const Contact: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="company" className="block text-sm text-gray-600 mb-2">
+                    <label htmlFor="company" className="block text-xs md:text-sm text-gray-600 mb-2">
                       {t('contact.form.company')}
                     </label>
                     <input
@@ -211,7 +211,7 @@ const Contact: React.FC = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="message" className="block text-sm text-gray-600 mb-2">
+                    <label htmlFor="message" className="block text-xs md:text-sm text-gray-600 mb-2">
                       {t('contact.form.message')} *
                     </label>
                     <textarea
@@ -253,7 +253,7 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="mt-8 p-6 gradient-border-blue"
+              className="mt-6 md:mt-8 p-4 md:p-6 gradient-border-blue"
             >
               <h4 className="text-sm font-medium mb-2">
                 {t('contact.quick.title')}
