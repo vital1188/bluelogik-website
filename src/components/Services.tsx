@@ -103,7 +103,9 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="mb-4">{t('services.title')}</h2>
+          <h2 className="mb-4">
+            <span className="gradient-text-blue">Our</span> {t('services.title').replace('Our ', '')}
+          </h2>
           <p className="text-lg max-w-2xl mx-auto">
             {t('services.subtitle')}
           </p>
@@ -121,13 +123,17 @@ const Services: React.FC = () => {
             <motion.div
               key={service.id}
               variants={itemVariants}
-              className="bg-white p-8 group hover:bg-gray-50 transition-colors duration-300"
+              className="bg-white p-8 group hover:bg-gradient-to-br hover:from-blue-50/50 hover:to-white transition-all duration-300 relative overflow-hidden"
             >
               <Link to={`/services/${service.id}`} className="block h-full">
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full relative z-10">
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                  
                   {/* Icon */}
-                  <div className="mb-6">
-                    <service.icon className="h-6 w-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+                  <div className="mb-6 relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-300 scale-150" />
+                    <service.icon className="h-6 w-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300 relative z-10" />
                   </div>
                   
                   {/* Content */}
@@ -157,7 +163,7 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <Link to="/services" className="btn-minimal">
+          <Link to="/services" className="btn-minimal gradient-border-blue">
             {t('services.viewAll')}
             <ArrowUpRight className="h-4 w-4" />
           </Link>

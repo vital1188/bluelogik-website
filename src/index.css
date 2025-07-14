@@ -20,6 +20,9 @@
   --text-tertiary: #999999;
   --gradient-blue: linear-gradient(135deg, #0066ff 0%, #4d94ff 100%);
   --gradient-blue-subtle: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(77, 148, 255, 0.05) 100%);
+  --gradient-blue-light: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(77, 148, 255, 0.1) 100%);
+  --gradient-blue-dark: linear-gradient(135deg, #0052cc 0%, #0066ff 100%);
+  --gradient-blue-vibrant: linear-gradient(135deg, #0066ff 0%, #66a3ff 100%);
 }
 
 /* Global Styles */
@@ -47,7 +50,7 @@ body {
 
 /* Custom Scrollbar - Minimal */
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -55,8 +58,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 1px;
+  background: var(--gradient-blue);
+  border-radius: 2px;
 }
 
 /* Typography */
@@ -143,7 +146,8 @@ p {
 }
 
 .btn-minimal:hover {
-  border-color: var(--text-primary);
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-1px);
 }
 
@@ -201,7 +205,7 @@ p {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--text-primary);
+  background: var(--gradient-blue);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -236,7 +240,7 @@ p {
 }
 
 .input-minimal:focus {
-  border-color: var(--text-primary);
+  border-color: var(--accent);
 }
 
 .input-minimal::placeholder {
@@ -315,7 +319,7 @@ a, button {
 
 /* Minimal focus states */
 *:focus {
-  outline: 1px solid var(--border);
+  outline: 1px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -332,9 +336,45 @@ section::after {
   transform: translateX(-50%);
   width: 1px;
   height: 100px;
-  background: linear-gradient(to bottom, var(--border), transparent);
+  background: linear-gradient(to bottom, rgba(0, 102, 255, 0.2), transparent);
 }
 
 section:last-of-type::after {
   display: none;
+}
+
+/* Gradient overlays */
+.gradient-overlay-blue {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-blue-subtle);
+  pointer-events: none;
+}
+
+/* Gradient borders */
+.gradient-border-blue {
+  position: relative;
+  background: var(--background);
+}
+
+.gradient-border-blue::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: var(--gradient-blue);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #0066ff, #4d94ff, #80b3ff, #4d94ff, #0066ff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }

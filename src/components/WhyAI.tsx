@@ -50,7 +50,10 @@ const WhyAI: React.FC = () => {
   ];
 
   return (
-    <section id="why-ai" className="section-padding bg-gray-50">
+    <section id="why-ai" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100/20 to-transparent rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-blue-100/20 to-transparent rounded-full blur-3xl -z-10" />
       <div className="container">
         {/* Header */}
         <motion.div
@@ -60,7 +63,9 @@ const WhyAI: React.FC = () => {
           viewport={{ once: true }}
           className="max-w-3xl mb-20"
         >
-          <h2 className="mb-6">{t('whyai.title')}</h2>
+          <h2 className="mb-6">
+            <span className="gradient-text-blue">Why</span> {t('whyai.title').replace('Why ', '')}
+          </h2>
           <p className="text-lg">
             {t('whyai.subtitle')}
           </p>
@@ -90,7 +95,7 @@ const WhyAI: React.FC = () => {
                   {benefit.description}
                 </p>
                 <div className="flex items-baseline gap-3">
-                  <span className="text-2xl font-thin">{benefit.stat}</span>
+                  <span className="text-2xl font-thin gradient-text-blue">{benefit.stat}</span>
                   <span className="text-sm text-gray-500">{benefit.statLabel}</span>
                 </div>
               </div>
@@ -104,10 +109,10 @@ const WhyAI: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="border-t border-gray-200 pt-20"
+          className="border-t border-blue-100 pt-20"
         >
           <h3 className="text-2xl font-light mb-12 text-center">
-            {t('whyai.features.title')}
+            <span className="gradient-text-blue">{t('whyai.features.title')}</span>
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (

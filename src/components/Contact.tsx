@@ -71,7 +71,9 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-6">{t('contact.title')}</h2>
+            <h2 className="mb-6">
+              <span className="gradient-text-blue">Get</span> {t('contact.title').replace('Get ', '')}
+            </h2>
             <p className="text-lg mb-12">
               {t('contact.subtitle')}
             </p>
@@ -139,9 +141,12 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-50 p-12">
+            <div className="bg-gradient-to-br from-gray-50 to-blue-50/20 p-12 relative overflow-hidden">
+              {/* Gradient decoration */}
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-3xl" />
+              
               <h3 className="text-2xl font-light mb-8">
-                {t('contact.form.title')}
+                <span className="gradient-text-blue">{t('contact.form.title')}</span>
               </h3>
               
               {isSubmitted ? (
@@ -248,7 +253,7 @@ const Contact: React.FC = () => {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="mt-8 p-6 border border-gray-200"
+              className="mt-8 p-6 gradient-border-blue"
             >
               <h4 className="text-sm font-medium mb-2">
                 {t('contact.quick.title')}

@@ -91,8 +91,9 @@ const Hero: React.FC = () => {
                   cy="200"
                   r="150"
                   fill="none"
-                  stroke="#e5e5e5"
+                  stroke="url(#blueGradient)"
                   strokeWidth="1"
+                  strokeOpacity="0.2"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 2, delay: 0.2, ease: "easeInOut" }}
@@ -102,8 +103,9 @@ const Hero: React.FC = () => {
                   cy="200"
                   r="120"
                   fill="none"
-                  stroke="#e5e5e5"
+                  stroke="url(#blueGradient)"
                   strokeWidth="1"
+                  strokeOpacity="0.1"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 2, delay: 0.4, ease: "easeInOut" }}
@@ -114,10 +116,23 @@ const Hero: React.FC = () => {
                   cx="200"
                   cy="200"
                   r="3"
-                  fill="#1a1a1a"
+                  fill="url(#blueGradient)"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5, delay: 1 }}
+                />
+                
+                {/* Gradient glow */}
+                <motion.circle
+                  cx="200"
+                  cy="200"
+                  r="60"
+                  fill="url(#blueGradient)"
+                  fillOpacity="0.05"
+                  filter="blur(40px)"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1.2, opacity: 1 }}
+                  transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
                 />
                 
                 {/* Orbiting dots */}
@@ -125,13 +140,13 @@ const Hero: React.FC = () => {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
-                  <circle cx="200" cy="50" r="2" fill="#666666" />
+                  <circle cx="200" cy="50" r="2" fill="#0066ff" />
                 </motion.g>
                 <motion.g
                   animate={{ rotate: -360 }}
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >
-                  <circle cx="350" cy="200" r="2" fill="#999999" />
+                  <circle cx="350" cy="200" r="2" fill="#4d94ff" />
                 </motion.g>
               </svg>
             </div>
@@ -157,7 +172,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
               className="text-center"
             >
-              <div className="text-3xl font-thin mb-2">{stat.value}</div>
+              <div className="text-3xl font-thin mb-2 gradient-text-blue">{stat.value}</div>
               <div className="text-sm text-gray-500 uppercase tracking-wider">
                 {stat.label}
               </div>
