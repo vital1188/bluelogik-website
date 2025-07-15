@@ -47,14 +47,12 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   };
 
-  const languages = [
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'es', name: 'Español', flag: '🇪🇸' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'ro', name: 'Română', flag: '🇷🇴' },
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  ];
+const languages = [
+  { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'ro', name: 'Română', flag: '🇷🇴' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+];
 
   const currentLang = languages.find(lang => lang.code === language);
 
@@ -109,7 +107,7 @@ const Navbar: React.FC = () => {
                       <button
                         key={lang.code}
                         onClick={() => {
-                          setLanguage(lang.code as any);
+                          setLanguage(lang.code as 'en' | 'fr' | 'ro' | 'ru');
                           setLangOpen(false);
                         }}
                         className={`w-full px-4 py-3 text-left text-sm font-light hover:bg-gray-50 transition-colors duration-200 flex items-center space-x-3 ${
@@ -181,7 +179,7 @@ const Navbar: React.FC = () => {
                     <button
                       key={lang.code}
                       onClick={() => {
-                        setLanguage(lang.code as any);
+                        setLanguage(lang.code as 'en' | 'fr' | 'ro' | 'ru');
                         setIsOpen(false);
                       }}
                       className={`px-4 py-2 text-sm font-light border ${
