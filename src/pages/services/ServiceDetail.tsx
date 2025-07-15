@@ -384,7 +384,8 @@ const ServiceDetail: React.FC = () => {
           {/* Back button */}
           <Link 
             to="/#services" 
-            className="inline-flex items-center text-xs md:text-sm text-gray-600 hover:text-blue-600 mb-6 md:mb-8 transition-colors"
+            className="inline-flex items-center text-xs md:text-sm text-gray-700 hover:text-blue-600 mb-6 md:mb-8 transition-colors font-medium"
+            style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}
           >
             <ArrowLeft className="h-3 w-3 md:h-4 md:w-4 mr-1.5 md:mr-2" />
             <span>{t('serviceDetail.backToServices')}</span>
@@ -410,7 +411,8 @@ const ServiceDetail: React.FC = () => {
                 {service.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-blue-500 mr-2 md:mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm md:text-base text-gray-700">{feature}</span>
+                    <span className="text-sm md:text-base text-gray-800 font-medium"
+                          style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.03)' }}>{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -424,7 +426,8 @@ const ServiceDetail: React.FC = () => {
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-start">
                     <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-blue-600 mr-2 md:mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-sm md:text-base text-gray-700">{benefit}</span>
+                    <span className="text-sm md:text-base text-gray-800 font-medium"
+                          style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.03)' }}>{benefit}</span>
                   </li>
                 ))}
               </ul>

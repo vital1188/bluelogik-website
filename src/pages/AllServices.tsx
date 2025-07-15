@@ -132,7 +132,8 @@ const AllServices: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mb-12 md:mb-16"
         >
-          <Link to="/" className="inline-flex items-center text-xs md:text-sm text-gray-600 hover:text-gray-900 mb-6 md:mb-8 transition-colors">
+          <Link to="/" className="inline-flex items-center text-xs md:text-sm text-gray-700 hover:text-gray-900 mb-6 md:mb-8 transition-colors font-medium"
+                style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}>
             <ArrowLeft className="h-3 w-3 md:h-4 md:w-4 mr-1.5 md:mr-2" />
             Back to Home
           </Link>
@@ -164,7 +165,7 @@ const AllServices: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
                   
                   {/* Category */}
-                  <span className="text-xs text-gray-500 uppercase tracking-wider mb-3 md:mb-4">
+                  <span className="text-xs text-gray-600 uppercase tracking-wider mb-3 md:mb-4 font-medium">
                     {service.category}
                   </span>
                   
@@ -175,15 +176,17 @@ const AllServices: React.FC = () => {
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-base md:text-lg font-normal mb-2 md:mb-3 group-hover:text-gray-900 transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 text-gray-900 group-hover:text-blue-700 transition-colors duration-300"
+                      style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}>
                     {service.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-500 mb-4 md:mb-6 flex-grow">
+                  <p className="text-xs md:text-sm text-gray-700 mb-4 md:mb-6 flex-grow font-medium leading-relaxed"
+                     style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.03)' }}>
                     {service.description}
                   </p>
                   
                   {/* Link */}
-                  <div className="flex items-center text-sm font-light group-hover:text-blue-600 transition-colors duration-300">
+                  <div className="flex items-center text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                     <span className="mr-2">{t('services.learnMore')}</span>
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
