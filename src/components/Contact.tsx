@@ -25,10 +25,25 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // In a real application, you would send this to your backend
+    // which would then send an email to hello@bluelogik.com
+    // For now, we'll simulate the submission
+    
+    // Example of what the backend would do:
+    // await sendEmail({
+    //   to: 'hello@bluelogik.com',
+    //   subject: `New Contact Form Submission from ${formData.name}`,
+    //   body: `
+    //     Name: ${formData.name}
+    //     Email: ${formData.email}
+    //     Company: ${formData.company}
+    //     Message: ${formData.message}
+    //   `
+    // });
+    
     await new Promise(resolve => setTimeout(resolve, 1500));
     
-    console.log('Form submitted:', formData);
+    console.log('Form submitted to hello@bluelogik.com:', formData);
     setIsSubmitting(false);
     setIsSubmitted(true);
     
@@ -43,14 +58,16 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       label: t('contact.info.email'),
-      value: 'contact@bluelogik.ai',
-      href: 'mailto:contact@bluelogik.ai',
+      value: 'hello@bluelogik.com',
+      href: 'mailto:hello@bluelogik.com',
     },
     {
       icon: Phone,
       label: t('contact.info.phone'),
-      value: '+1 (234) 567-890',
-      href: 'tel:+1234567890',
+      value: '+373 78470679',
+      href: 'tel:+37378470679',
+      secondary: '+1 (202) 394-7341',
+      secondaryHref: 'tel:+12023947341',
     },
     {
       icon: MapPin,
@@ -81,9 +98,8 @@ const Contact: React.FC = () => {
             {/* Contact Info */}
             <div className="space-y-6 md:space-y-8 mb-8 md:mb-12">
               {contactInfo.map((info, index) => (
-                <motion.a
+                <motion.div
                   key={index}
-                  href={info.href}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -97,11 +113,22 @@ const Contact: React.FC = () => {
                     <h4 className="text-xs md:text-sm text-gray-500 mb-1">
                       {info.label}
                     </h4>
-                    <p className="text-sm md:text-base text-gray-900">
+                    <a 
+                      href={info.href}
+                      className="text-sm md:text-base text-gray-900 hover:text-blue-600 transition-colors block"
+                    >
                       {info.value}
-                    </p>
+                    </a>
+                    {'secondary' in info && info.secondary && (
+                      <a 
+                        href={info.secondaryHref}
+                        className="text-sm md:text-base text-gray-900 block mt-1 hover:text-blue-600 transition-colors"
+                      >
+                        {info.secondary}
+                      </a>
+                    )}
                   </div>
-                </motion.a>
+                </motion.div>
               ))}
             </div>
 
