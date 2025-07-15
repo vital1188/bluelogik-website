@@ -180,7 +180,7 @@ const AIChatbot: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-16 right-2 left-2 sm:left-auto sm:right-4 sm:w-80 md:w-96 z-40 max-h-[70vh] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden backdrop-blur-sm"
+            className="fixed bottom-20 right-4 left-4 sm:left-auto sm:right-4 sm:w-80 md:w-96 z-40 max-h-[65vh] sm:max-h-[70vh] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden backdrop-blur-sm"
           >
             {/* Slim Header */}
             <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 text-white">
