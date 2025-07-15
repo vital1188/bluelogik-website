@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="mb-4 md:mb-6">
-              <span className="gradient-text-blue">Get</span> {t('contact.title').replace('Get ', '')}
+              <span className="gradient-text-blue">{t('contact.title').split(' ')[0]}</span> {t('contact.title').split(' ').slice(1).join(' ')}
             </h2>
             <p className="text-base md:text-lg mb-8 md:mb-12">
               {t('contact.subtitle')}
@@ -290,7 +290,7 @@ const Contact: React.FC = () => {
                       <div>
                         <p className="text-sm text-red-800">{error}</p>
                         <p className="text-xs text-red-600 mt-1">
-                          Please try again or contact us directly at hello@bluelogik.com
+                          {t('contact.form.errorHelp')}
                         </p>
                       </div>
                     </div>

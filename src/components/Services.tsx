@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { 
   Zap, TrendingUp, Megaphone, Share2, 
   BarChart3, Puzzle, Code, Globe,
-  ShoppingBag, CreditCard, Package, Store,
   ArrowUpRight
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -104,7 +103,7 @@ const Services: React.FC = () => {
           className="text-center mb-12 md:mb-20"
         >
           <h2 className="mb-3 md:mb-4">
-            <span className="gradient-text-blue">Our</span> {t('services.title').replace('Our ', '')}
+            <span className="gradient-text-blue">{t('services.title').split(' ')[0]}</span> {t('services.title').split(' ').slice(1).join(' ')}
           </h2>
           <p className="text-base md:text-lg max-w-2xl mx-auto px-4 md:px-0">
             {t('services.subtitle')}

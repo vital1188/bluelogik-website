@@ -303,15 +303,19 @@ const baseTranslations = {
   
   'whyai.advantage.title': 'Competitive Advantage',
   'whyai.advantage.desc': 'Companies that implement AI solutions gain a significant edge over competitors, with 63% of businesses reporting increased revenue after AI adoption.',
+  'whyai.advantage.stat': 'Revenue Increase',
   
   'whyai.efficiency.title': 'Operational Efficiency',
   'whyai.efficiency.desc': 'AI automates repetitive tasks, reducing operational costs by up to 40% and allowing your team to focus on high-value strategic activities.',
+  'whyai.efficiency.stat': 'Cost Reduction',
   
   'whyai.decision.title': 'Enhanced Decision Making',
   'whyai.decision.desc': 'Data-driven insights from AI enable better business decisions, with 87% of executives reporting more confident strategic planning.',
+  'whyai.decision.stat': 'Better Decisions',
   
   'whyai.experience.title': 'Customer Experience',
   'whyai.experience.desc': 'AI-powered personalization increases customer satisfaction by 35% and boosts retention rates through tailored experiences and 24/7 support.',
+  'whyai.experience.stat': 'Satisfaction Boost',
   
   // Why AI Features
   'whyai.features.title': 'AI-Powered Features',
@@ -336,6 +340,7 @@ const baseTranslations = {
   'contact.form.success': 'Message sent successfully!',
   'contact.form.successDesc': 'We\'ll get back to you within 24 hours.',
   'contact.form.error': 'Failed to send message. Please try again.',
+  'contact.form.errorHelp': 'Please try again or contact us directly at hello@bluelogik.com',
   'contact.form.messagePlaceholder': 'Tell us about your project...',
   'contact.info.title': 'Contact Information',
   'contact.info.address': 'Chisinau, Moldova',
@@ -439,15 +444,19 @@ const translations: Record<Language, Record<string, string>> = {
     
     'whyai.advantage.title': 'Avantaj Competitiv',
     'whyai.advantage.desc': 'Companiile care implementează soluții AI obțin un avantaj semnificativ față de concurenți, cu 63% dintre afaceri raportând venituri crescute după adoptarea AI.',
+    'whyai.advantage.stat': 'Creștere Venituri',
     
     'whyai.efficiency.title': 'Eficiență Operațională',
     'whyai.efficiency.desc': 'AI automatizează sarcinile repetitive, reducând costurile operaționale cu până la 40% și permițând echipei tale să se concentreze pe activități strategice.',
+    'whyai.efficiency.stat': 'Reducere Costuri',
     
     'whyai.decision.title': 'Luare de Decizii Îmbunătățită',
     'whyai.decision.desc': 'Informațiile bazate pe date din AI permit decizii de afaceri mai bune, cu 87% dintre executivi raportând o planificare strategică mai încrezătoare.',
+    'whyai.decision.stat': 'Decizii Mai Bune',
     
     'whyai.experience.title': 'Experiența Clientului',
     'whyai.experience.desc': 'Personalizarea bazată pe AI crește satisfacția clienților cu 35% și îmbunătățește ratele de retenție prin experiențe personalizate și suport 24/7.',
+    'whyai.experience.stat': 'Creștere Satisfacție',
     
     // Why AI Features
     'whyai.features.title': 'Caracteristici Bazate pe AI',
@@ -472,6 +481,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.success': 'Mesaj trimis cu succes!',
     'contact.form.successDesc': 'Te vom contacta în 24 de ore.',
     'contact.form.error': 'Eroare la trimiterea mesajului. Te rugăm să încerci din nou.',
+    'contact.form.errorHelp': 'Te rugăm să încerci din nou sau contactează-ne direct la hello@bluelogik.com',
     'contact.form.messagePlaceholder': 'Spune-ne despre proiectul tău...',
     'contact.info.title': 'Informații de Contact',
     'contact.info.address': 'Chișinău, Moldova',
@@ -788,15 +798,19 @@ const translations: Record<Language, Record<string, string>> = {
     
     'whyai.advantage.title': 'Ventaja Competitiva',
     'whyai.advantage.desc': 'Las empresas que implementan soluciones de IA obtienen una ventaja significativa sobre los competidores, con el 63% de las empresas reportando mayores ingresos después de la adopción de IA.',
+    'whyai.advantage.stat': 'Aumento de Ingresos',
     
     'whyai.efficiency.title': 'Eficiencia Operacional',
     'whyai.efficiency.desc': 'La IA automatiza tareas repetitivas, reduciendo los costos operativos hasta en un 40% y permitiendo que tu equipo se centre en actividades estratégicas.',
+    'whyai.efficiency.stat': 'Reducción de Costos',
     
     'whyai.decision.title': 'Toma de Decisiones Mejorada',
     'whyai.decision.desc': 'Los conocimientos basados en datos de la IA permiten mejores decisiones empresariales, con el 87% de los ejecutivos reportando una planificación estratégica más segura.',
+    'whyai.decision.stat': 'Mejores Decisiones',
     
     'whyai.experience.title': 'Experiencia del Cliente',
     'whyai.experience.desc': 'La personalización impulsada por IA aumenta la satisfacción del cliente en un 35% y mejora las tasas de retención a través de experiencias personalizadas y soporte 24/7.',
+    'whyai.experience.stat': 'Aumento de Satisfacción',
     
     // Why AI Features
     'whyai.features.title': 'Características Impulsadas por IA',
@@ -821,6 +835,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.success': '¡Mensaje enviado con éxito!',
     'contact.form.successDesc': 'Te contactaremos dentro de 24 horas.',
     'contact.form.error': 'Error al enviar el mensaje. Por favor, inténtalo de nuevo.',
+    'contact.form.errorHelp': 'Por favor, inténtalo de nuevo o contáctanos directamente en hello@bluelogik.com',
     'contact.form.messagePlaceholder': 'Cuéntanos sobre tu proyecto...',
     'contact.info.title': 'Información de Contacto',
     'contact.info.address': 'Chisinau, Moldavia',
@@ -921,15 +936,19 @@ const translations: Record<Language, Record<string, string>> = {
     
     'whyai.advantage.title': 'Avantage Concurrentiel',
     'whyai.advantage.desc': 'Les entreprises qui mettent en œuvre des solutions IA obtiennent un avantage significatif sur leurs concurrents, avec 63% des entreprises signalant une augmentation des revenus après l\'adoption de l\'IA.',
+    'whyai.advantage.stat': 'Augmentation des Revenus',
     
     'whyai.efficiency.title': 'Efficacité Opérationnelle',
     'whyai.efficiency.desc': 'L\'IA automatise les tâches répétitives, réduisant les coûts opérationnels jusqu\'à 40% et permettant à votre équipe de se concentrer sur des activités stratégiques.',
+    'whyai.efficiency.stat': 'Réduction des Coûts',
     
     'whyai.decision.title': 'Prise de Décision Améliorée',
     'whyai.decision.desc': 'Les informations basées sur les données de l\'IA permettent de meilleures décisions commerciales, avec 87% des cadres signalant une planification stratégique plus confiante.',
+    'whyai.decision.stat': 'Meilleures Décisions',
     
     'whyai.experience.title': 'Expérience Client',
     'whyai.experience.desc': 'La personnalisation alimentée par l\'IA augmente la satisfaction client de 35% et améliore les taux de rétention grâce à des expériences sur mesure et un support 24/7.',
+    'whyai.experience.stat': 'Augmentation de la Satisfaction',
     
     // Why AI Features
     'whyai.features.title': 'Fonctionnalités Alimentées par l\'IA',
@@ -954,6 +973,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.success': 'Message envoyé avec succès!',
     'contact.form.successDesc': 'Nous vous répondrons dans les 24 heures.',
     'contact.form.error': 'Échec de l\'envoi du message. Veuillez réessayer.',
+    'contact.form.errorHelp': 'Veuillez réessayer ou nous contacter directement à hello@bluelogik.com',
     'contact.form.messagePlaceholder': 'Parlez-nous de votre projet...',
     'contact.info.title': 'Informations de Contact',
     'contact.info.address': 'Chisinau, Moldavie',
@@ -1054,15 +1074,19 @@ const translations: Record<Language, Record<string, string>> = {
     
     'whyai.advantage.title': 'Wettbewerbsvorteil',
     'whyai.advantage.desc': 'Unternehmen, die KI-Lösungen implementieren, erlangen einen erheblichen Vorteil gegenüber Wettbewerbern, wobei 63% der Unternehmen nach der KI-Einführung höhere Einnahmen melden.',
+    'whyai.advantage.stat': 'Umsatzsteigerung',
     
     'whyai.efficiency.title': 'Betriebliche Effizienz',
     'whyai.efficiency.desc': 'KI automatisiert wiederkehrende Aufgaben, reduziert die Betriebskosten um bis zu 40% und ermöglicht es Ihrem Team, sich auf strategische Aktivitäten zu konzentrieren.',
+    'whyai.efficiency.stat': 'Kostenreduzierung',
     
     'whyai.decision.title': 'Verbesserte Entscheidungsfindung',
     'whyai.decision.desc': 'Datengestützte Erkenntnisse aus KI ermöglichen bessere Geschäftsentscheidungen, wobei 87% der Führungskräfte eine sicherere strategische Planung melden.',
+    'whyai.decision.stat': 'Bessere Entscheidungen',
     
     'whyai.experience.title': 'Kundenerfahrung',
     'whyai.experience.desc': 'KI-gestützte Personalisierung erhöht die Kundenzufriedenheit um 35% und verbessert die Bindungsraten durch maßgeschneiderte Erlebnisse und 24/7-Support.',
+    'whyai.experience.stat': 'Zufriedenheitssteigerung',
     
     // Why AI Features
     'whyai.features.title': 'KI-gestützte Funktionen',
@@ -1087,6 +1111,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.success': 'Nachricht erfolgreich gesendet!',
     'contact.form.successDesc': 'Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.',
     'contact.form.error': 'Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.',
+    'contact.form.errorHelp': 'Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt unter hello@bluelogik.com',
     'contact.form.messagePlaceholder': 'Erzählen Sie uns von Ihrem Projekt...',
     'contact.info.title': 'Kontaktinformationen',
     'contact.info.address': 'Chisinau, Moldawien',
@@ -1187,15 +1212,19 @@ const translations: Record<Language, Record<string, string>> = {
     
     'whyai.advantage.title': 'Конкурентное Преимущество',
     'whyai.advantage.desc': 'Компании, внедряющие решения ИИ, получают значительное преимущество перед конкурентами: 63% предприятий сообщают об увеличении доходов после внедрения ИИ.',
+    'whyai.advantage.stat': 'Увеличение Доходов',
     
     'whyai.efficiency.title': 'Операционная Эффективность',
     'whyai.efficiency.desc': 'ИИ автоматизирует повторяющиеся задачи, снижая операционные расходы до 40% и позволяя вашей команде сосредоточиться на стратегической деятельности.',
+    'whyai.efficiency.stat': 'Снижение Затрат',
     
     'whyai.decision.title': 'Улучшенное Принятие Решений',
     'whyai.decision.desc': 'Аналитика на основе данных ИИ обеспечивает лучшие бизнес-решения: 87% руководителей сообщают о более уверенном стратегическом планировании.',
+    'whyai.decision.stat': 'Лучшие Решения',
     
     'whyai.experience.title': 'Клиентский Опыт',
     'whyai.experience.desc': 'Персонализация на основе ИИ повышает удовлетворенность клиентов на 35% и улучшает показатели удержания благодаря индивидуальному опыту и поддержке 24/7.',
+    'whyai.experience.stat': 'Повышение Удовлетворенности',
     
     // Why AI Features
     'whyai.features.title': 'Функции на Основе ИИ',
@@ -1220,6 +1249,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.success': 'Сообщение успешно отправлено!',
     'contact.form.successDesc': 'Мы свяжемся с вами в течение 24 часов.',
     'contact.form.error': 'Ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.',
+    'contact.form.errorHelp': 'Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую по адресу hello@bluelogik.com',
     'contact.form.messagePlaceholder': 'Расскажите нам о вашем проекте...',
     'contact.info.title': 'Контактная Информация',
     'contact.info.address': 'Кишинев, Молдова',

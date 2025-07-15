@@ -15,28 +15,28 @@ const WhyAI: React.FC = () => {
       title: t('whyai.advantage.title'),
       description: t('whyai.advantage.desc'),
       stat: '63%',
-      statLabel: 'Revenue Increase',
+      statLabel: t('whyai.advantage.stat'),
     },
     {
       icon: Zap,
       title: t('whyai.efficiency.title'),
       description: t('whyai.efficiency.desc'),
       stat: '40%',
-      statLabel: 'Cost Reduction',
+      statLabel: t('whyai.efficiency.stat'),
     },
     {
       icon: Brain,
       title: t('whyai.decision.title'),
       description: t('whyai.decision.desc'),
       stat: '87%',
-      statLabel: 'Better Decisions',
+      statLabel: t('whyai.decision.stat'),
     },
     {
       icon: Users,
       title: t('whyai.experience.title'),
       description: t('whyai.experience.desc'),
       stat: '35%',
-      statLabel: 'Satisfaction Boost',
+      statLabel: t('whyai.experience.stat'),
     },
   ];
 
@@ -64,7 +64,7 @@ const WhyAI: React.FC = () => {
           className="max-w-3xl mb-12 md:mb-20"
         >
           <h2 className="mb-4 md:mb-6">
-            <span className="gradient-text-blue">Why</span> {t('whyai.title').replace('Why ', '')}
+            <span className="gradient-text-blue">{t('whyai.title').split(' ')[0]}</span> {t('whyai.title').split(' ').slice(1).join(' ')}
           </h2>
           <p className="text-base md:text-lg">
             {t('whyai.subtitle')}
