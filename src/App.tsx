@@ -5,6 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import AIChatbot from './components/AIChatbot';
 import HomePage from './pages/HomePage';
 import AllServices from './pages/AllServices';
 import ServiceDetail from './pages/services/ServiceDetail';
@@ -31,6 +32,7 @@ function App() {
               </Routes>
             </main>
             <Footer />
+            <AIChatbot />
           </div>
         </Router>
       </LanguageProvider>
