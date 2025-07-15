@@ -37,7 +37,7 @@ const Logo: React.FC<LogoProps> = ({ className = '', showText = true }) => {
           <motion.path
             d="M50 10 C72.091 10 90 27.909 90 50 C90 72.091 72.091 90 50 90"
             stroke="url(#logoGradient)"
-            strokeWidth="3"
+            strokeWidth="4"
             strokeLinecap="round"
             fill="none"
             initial={{ pathLength: 0, rotate: -90 }}
@@ -49,14 +49,14 @@ const Logo: React.FC<LogoProps> = ({ className = '', showText = true }) => {
               pathLength: { duration: 1.5, ease: "easeInOut" },
               rotate: { duration: 1.5, ease: "easeOut" }
             }}
-            style={{ transformOrigin: "50px 50px" }}
+            style={{ transformOrigin: "50px 50px", filter: 'drop-shadow(0 1px 2px rgba(0, 102, 255, 0.3))' }}
           />
           
           {/* Middle ring */}
           <motion.path
             d="M50 25 C63.807 25 75 36.193 75 50 C75 63.807 63.807 75 50 75"
             stroke="url(#logoGradient)"
-            strokeWidth="3"
+            strokeWidth="4"
             strokeLinecap="round"
             fill="none"
             initial={{ pathLength: 0, rotate: 90 }}
@@ -68,14 +68,14 @@ const Logo: React.FC<LogoProps> = ({ className = '', showText = true }) => {
               pathLength: { duration: 1.5, delay: 0.2, ease: "easeInOut" },
               rotate: { duration: 1.5, delay: 0.2, ease: "easeOut" }
             }}
-            style={{ transformOrigin: "50px 50px" }}
+            style={{ transformOrigin: "50px 50px", filter: 'drop-shadow(0 1px 2px rgba(0, 102, 255, 0.3))' }}
           />
           
           {/* Inner circle with pulse */}
           <motion.circle
             cx="50"
             cy="50"
-            r="8"
+            r="10"
             fill="url(#logoGradient)"
             initial={{ scale: 0 }}
             animate={{ scale: [0, 1.2, 1] }}
@@ -84,18 +84,19 @@ const Logo: React.FC<LogoProps> = ({ className = '', showText = true }) => {
               delay: 0.8,
               times: [0, 0.6, 1]
             }}
-            style={{ transformOrigin: "50px 50px" }}
+            style={{ transformOrigin: "50px 50px", filter: 'drop-shadow(0 1px 3px rgba(0, 102, 255, 0.4))' }}
           />
           
           {/* Connecting line */}
           <motion.path
-            d="M50 42 L50 25"
+            d="M50 40 L50 25"
             stroke="url(#logoGradient)"
-            strokeWidth="3"
+            strokeWidth="4"
             strokeLinecap="round"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ duration: 0.5, delay: 1.2 }}
+            style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 102, 255, 0.3))' }}
           />
         </svg>
         
@@ -118,7 +119,8 @@ const Logo: React.FC<LogoProps> = ({ className = '', showText = true }) => {
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-2xl font-thin tracking-wider"
+          className="text-2xl font-semibold tracking-wider"
+          style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)' }}
         >
           <span className="gradient-text-blue">Blue</span>
           <span className="text-gray-900">Logik</span>
