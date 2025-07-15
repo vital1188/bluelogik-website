@@ -141,19 +141,21 @@ const Contact: React.FC = () => {
                     <info.icon className="h-4 w-4 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="text-xs md:text-sm text-gray-500 mb-1">
+                    <h4 className="text-xs md:text-sm text-gray-600 mb-1 font-medium">
                       {info.label}
                     </h4>
                     <a 
                       href={info.href}
-                      className="text-sm md:text-base text-gray-900 hover:text-blue-600 transition-colors block"
+                      className="text-sm md:text-base text-gray-900 hover:text-blue-600 transition-colors block font-semibold"
+                      style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}
                     >
                       {info.value}
                     </a>
                     {'secondary' in info && info.secondary && (
                       <a 
                         href={info.secondaryHref}
-                        className="text-sm md:text-base text-gray-900 block mt-1 hover:text-blue-600 transition-colors"
+                        className="text-sm md:text-base text-gray-900 block mt-1 hover:text-blue-600 transition-colors font-semibold"
+                        style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}
                       >
                         {info.secondary}
                       </a>

@@ -77,7 +77,8 @@ const languages = [
                 <a
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
-                  className="text-sm font-light tracking-wide hover:opacity-60 transition-opacity duration-300 cursor-pointer"
+                  className="text-sm font-medium tracking-wide hover:opacity-70 transition-opacity duration-300 cursor-pointer text-gray-800"
+                  style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}
                 >
                   {item.name}
                 </a>
@@ -165,7 +166,8 @@ const languages = [
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item)}
-                  className="block text-lg font-light cursor-pointer"
+                  className="block text-lg font-medium cursor-pointer text-gray-800"
+                  style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}
                 >
                   {item.name}
                 </a>
