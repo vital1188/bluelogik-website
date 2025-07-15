@@ -300,9 +300,81 @@ const translations: Record<Language, Record<string, string>> = {
     'services.viewAll': 'Ver Todos los Servicios',
     'services.learnMore': 'Saber más',
     
+    'services.optimization.title': 'Optimización de Tareas Empresariales con IA',
+    'services.optimization.desc': 'Optimiza las operaciones y automatiza tareas repetitivas con nuestras soluciones de optimización de flujo de trabajo impulsadas por IA.',
+    
+    'services.sales.title': 'Crecimiento de Ventas Mejorado con IA',
+    'services.sales.desc': 'Aprovecha análisis predictivos e información del cliente para identificar oportunidades y aumentar las tasas de conversión.',
+    
+    'services.marketing.title': 'Estrategias de Marketing con IA',
+    'services.marketing.desc': 'Crea campañas de marketing basadas en datos con contenido personalizado y optimización automática.',
+    
+    'services.social.title': 'Optimización de Redes Sociales con IA',
+    'services.social.desc': 'Mejora tu presencia en redes sociales con creación de contenido y análisis de rendimiento impulsados por IA.',
+    
+    'services.analysis.title': 'Análisis Avanzado de Datos con IA',
+    'services.analysis.desc': 'Transforma datos brutos en información accionable con nuestras soluciones avanzadas de análisis.',
+    
+    'services.integration.title': 'Servicios de Integración de IA',
+    'services.integration.desc': 'Integra sin problemas las capacidades de IA en tus sistemas y flujos de trabajo existentes.',
+    
+    'services.webdev.title': 'Desarrollo Web con IA',
+    'services.webdev.desc': 'Crea sitios web de vanguardia con herramientas de desarrollo asistidas por IA.',
+    
+    'services.webopt.title': 'Optimización de Sitios Web con IA',
+    'services.webopt.desc': 'Mejora el rendimiento, SEO y tasas de conversión de tu sitio web existente.',
+    
+    'services.website.title': 'Desarrollo de Sitios Web',
+    'services.website.desc': 'Desarrollo profesional de sitios web con tecnologías modernas, diseño responsive y rendimiento óptimo.',
+    
+    'services.shopify.title': 'Desarrollo E-commerce Shopify',
+    'services.shopify.desc': 'Construye tiendas online potentes con Shopify, incluyendo temas personalizados, aplicaciones e integraciones.',
+    
+    'services.woocommerce.title': 'Desarrollo WooCommerce',
+    'services.woocommerce.desc': 'Crea soluciones e-commerce flexibles basadas en WordPress con personalización WooCommerce.',
+    
+    'services.bigcommerce.title': 'Desarrollo BigCommerce',
+    'services.bigcommerce.desc': 'Soluciones e-commerce a nivel empresarial con BigCommerce para negocios online escalables.',
+    
+    // All Services Page
+    'allServices.title': 'Todos Nuestros Servicios',
+    'allServices.subtitle': 'Soluciones integrales para transformar tu negocio con IA y tecnologías web modernas',
+    'allServices.cta': 'Comienza con Nuestros Servicios',
+    
+    // Service Detail Pages
+    'serviceDetail.backToServices': 'Volver a Servicios',
+    'serviceDetail.keyFeatures': 'Características Clave',
+    'serviceDetail.benefits': 'Beneficios',
+    'serviceDetail.process': 'Nuestro Proceso',
+    'serviceDetail.ready': '¿Listo para Comenzar?',
+    'serviceDetail.discuss': 'Hablemos de cómo nuestro',
+    'serviceDetail.transform': 'puede transformar tu negocio.',
+    
     // Why AI Section
     'whyai.title': 'Por Qué Tu Negocio Necesita IA',
     'whyai.subtitle': 'El panorama empresarial está cambiando rápidamente. Las empresas que adopten la IA ahora prosperarán.',
+    
+    'whyai.advantage.title': 'Ventaja Competitiva',
+    'whyai.advantage.desc': 'Las empresas que implementan soluciones de IA obtienen una ventaja significativa sobre los competidores, con el 63% de las empresas reportando mayores ingresos después de la adopción de IA.',
+    
+    'whyai.efficiency.title': 'Eficiencia Operacional',
+    'whyai.efficiency.desc': 'La IA automatiza tareas repetitivas, reduciendo los costos operativos hasta en un 40% y permitiendo que tu equipo se centre en actividades estratégicas.',
+    
+    'whyai.decision.title': 'Toma de Decisiones Mejorada',
+    'whyai.decision.desc': 'Los conocimientos basados en datos de la IA permiten mejores decisiones empresariales, con el 87% de los ejecutivos reportando una planificación estratégica más segura.',
+    
+    'whyai.experience.title': 'Experiencia del Cliente',
+    'whyai.experience.desc': 'La personalización impulsada por IA aumenta la satisfacción del cliente en un 35% y mejora las tasas de retención a través de experiencias personalizadas y soporte 24/7.',
+    
+    // Why AI Features
+    'whyai.features.title': 'Características Impulsadas por IA',
+    'whyai.features.realtime': 'Procesamiento de datos en tiempo real',
+    'whyai.features.predictive': 'Análisis predictivo',
+    'whyai.features.automated': 'Flujos de trabajo automatizados',
+    'whyai.features.smart': 'Recomendaciones inteligentes',
+    'whyai.features.continuous': 'Aprendizaje continuo',
+    'whyai.features.scalable': 'Soluciones escalables',
+    'whyai.cta': 'Comienza tu Viaje con IA',
     
     // Contact Section
     'contact.title': 'Contáctanos',
@@ -315,10 +387,23 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.send': 'Enviar Mensaje',
     'contact.form.sending': 'Enviando...',
     'contact.form.success': '¡Mensaje enviado con éxito!',
+    'contact.form.successDesc': 'Te contactaremos dentro de 24 horas.',
     'contact.form.error': 'Error al enviar el mensaje. Por favor, inténtalo de nuevo.',
+    'contact.form.messagePlaceholder': 'Cuéntanos sobre tu proyecto...',
     'contact.info.title': 'Información de Contacto',
     'contact.info.address': 'Chisinau, Moldavia',
     'contact.info.available': 'Disponible 24/7 para las necesidades de tu negocio',
+    'contact.info.email': 'Correo',
+    'contact.info.phone': 'Teléfono',
+    'contact.info.location': 'Dirección',
+    'contact.hours.title': 'Horario de Atención',
+    'contact.hours.weekdays': 'Lunes - Viernes',
+    'contact.hours.saturday': 'Sábado',
+    'contact.hours.sunday': 'Domingo',
+    'contact.hours.closed': 'Cerrado',
+    'contact.quick.title': '¿Necesitas una respuesta rápida?',
+    'contact.quick.desc': 'Para consultas urgentes, llámanos directamente o usa nuestro chat en vivo.',
+    'contact.quick.cta': 'Iniciar Chat en Vivo',
     
     // Footer
     'footer.rights': 'Todos los derechos reservados.',
@@ -344,13 +429,85 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Services Section
     'services.title': 'Nos Services IA',
-    'services.subtitle': 'Solutions IA complètes conçues pour transformer vos opérations commerciales',
+    'services.subtitle': 'Solutions IA complètes conçues pour transformer vos opérations commerciales et stimuler la croissance',
     'services.viewAll': 'Voir Tous les Services',
     'services.learnMore': 'En savoir plus',
+    
+    'services.optimization.title': 'Optimisation des Tâches d\'Entreprise avec IA',
+    'services.optimization.desc': 'Rationalisez les opérations et automatisez les tâches répétitives avec nos solutions d\'optimisation de flux de travail alimentées par l\'IA.',
+    
+    'services.sales.title': 'Croissance des Ventes Améliorée par l\'IA',
+    'services.sales.desc': 'Exploitez l\'analyse prédictive et les informations clients pour identifier les opportunités et augmenter les taux de conversion.',
+    
+    'services.marketing.title': 'Stratégies Marketing Alimentées par l\'IA',
+    'services.marketing.desc': 'Créez des campagnes marketing basées sur les données avec du contenu personnalisé et une optimisation automatique.',
+    
+    'services.social.title': 'Optimisation des Médias Sociaux avec IA',
+    'services.social.desc': 'Améliorez votre présence sur les réseaux sociaux avec la création de contenu et l\'analyse de performance alimentées par l\'IA.',
+    
+    'services.analysis.title': 'Analyse de Données Avancée avec IA',
+    'services.analysis.desc': 'Transformez les données brutes en informations exploitables avec nos solutions d\'analyse avancées.',
+    
+    'services.integration.title': 'Services d\'Intégration IA',
+    'services.integration.desc': 'Intégrez sans effort les capacités IA dans vos systèmes et flux de travail existants.',
+    
+    'services.webdev.title': 'Développement Web avec IA',
+    'services.webdev.desc': 'Créez des sites web de pointe avec des outils de développement assistés par IA.',
+    
+    'services.webopt.title': 'Optimisation de Site Web avec IA',
+    'services.webopt.desc': 'Améliorez les performances, le référencement et les taux de conversion de votre site web existant.',
+    
+    'services.website.title': 'Développement de Sites Web',
+    'services.website.desc': 'Développement professionnel de sites web avec technologies modernes, design responsive et performance optimale.',
+    
+    'services.shopify.title': 'Développement E-commerce Shopify',
+    'services.shopify.desc': 'Construisez des boutiques en ligne puissantes avec Shopify, incluant thèmes personnalisés, applications et intégrations.',
+    
+    'services.woocommerce.title': 'Développement WooCommerce',
+    'services.woocommerce.desc': 'Créez des solutions e-commerce flexibles basées sur WordPress avec personnalisation WooCommerce.',
+    
+    'services.bigcommerce.title': 'Développement BigCommerce',
+    'services.bigcommerce.desc': 'Solutions e-commerce au niveau entreprise avec BigCommerce pour des entreprises en ligne évolutives.',
+    
+    // All Services Page
+    'allServices.title': 'Tous Nos Services',
+    'allServices.subtitle': 'Solutions complètes pour transformer votre entreprise avec l\'IA et les technologies web modernes',
+    'allServices.cta': 'Commencez avec Nos Services',
+    
+    // Service Detail Pages
+    'serviceDetail.backToServices': 'Retour aux Services',
+    'serviceDetail.keyFeatures': 'Caractéristiques Clés',
+    'serviceDetail.benefits': 'Avantages',
+    'serviceDetail.process': 'Notre Processus',
+    'serviceDetail.ready': 'Prêt à Commencer?',
+    'serviceDetail.discuss': 'Discutons comment notre',
+    'serviceDetail.transform': 'peut transformer votre entreprise.',
     
     // Why AI Section
     'whyai.title': 'Pourquoi Votre Entreprise a Besoin de l\'IA',
     'whyai.subtitle': 'Le paysage commercial évolue rapidement. Les entreprises qui adoptent l\'IA maintenant prospéreront.',
+    
+    'whyai.advantage.title': 'Avantage Concurrentiel',
+    'whyai.advantage.desc': 'Les entreprises qui mettent en œuvre des solutions IA obtiennent un avantage significatif sur leurs concurrents, avec 63% des entreprises signalant une augmentation des revenus après l\'adoption de l\'IA.',
+    
+    'whyai.efficiency.title': 'Efficacité Opérationnelle',
+    'whyai.efficiency.desc': 'L\'IA automatise les tâches répétitives, réduisant les coûts opérationnels jusqu\'à 40% et permettant à votre équipe de se concentrer sur des activités stratégiques.',
+    
+    'whyai.decision.title': 'Prise de Décision Améliorée',
+    'whyai.decision.desc': 'Les informations basées sur les données de l\'IA permettent de meilleures décisions commerciales, avec 87% des cadres signalant une planification stratégique plus confiante.',
+    
+    'whyai.experience.title': 'Expérience Client',
+    'whyai.experience.desc': 'La personnalisation alimentée par l\'IA augmente la satisfaction client de 35% et améliore les taux de rétention grâce à des expériences sur mesure et un support 24/7.',
+    
+    // Why AI Features
+    'whyai.features.title': 'Fonctionnalités Alimentées par l\'IA',
+    'whyai.features.realtime': 'Traitement des données en temps réel',
+    'whyai.features.predictive': 'Analyse prédictive',
+    'whyai.features.automated': 'Flux de travail automatisés',
+    'whyai.features.smart': 'Recommandations intelligentes',
+    'whyai.features.continuous': 'Apprentissage continu',
+    'whyai.features.scalable': 'Solutions évolutives',
+    'whyai.cta': 'Commencez Votre Voyage IA',
     
     // Contact Section
     'contact.title': 'Contactez-nous',
@@ -363,10 +520,23 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.send': 'Envoyer le Message',
     'contact.form.sending': 'Envoi en cours...',
     'contact.form.success': 'Message envoyé avec succès!',
+    'contact.form.successDesc': 'Nous vous répondrons dans les 24 heures.',
     'contact.form.error': 'Échec de l\'envoi du message. Veuillez réessayer.',
+    'contact.form.messagePlaceholder': 'Parlez-nous de votre projet...',
     'contact.info.title': 'Informations de Contact',
     'contact.info.address': 'Chisinau, Moldavie',
     'contact.info.available': 'Disponible 24/7 pour les besoins de votre entreprise',
+    'contact.info.email': 'Email',
+    'contact.info.phone': 'Téléphone',
+    'contact.info.location': 'Adresse',
+    'contact.hours.title': 'Heures d\'Ouverture',
+    'contact.hours.weekdays': 'Lundi - Vendredi',
+    'contact.hours.saturday': 'Samedi',
+    'contact.hours.sunday': 'Dimanche',
+    'contact.hours.closed': 'Fermé',
+    'contact.quick.title': 'Besoin d\'une réponse rapide?',
+    'contact.quick.desc': 'Pour les demandes urgentes, appelez-nous directement ou utilisez notre chat en direct.',
+    'contact.quick.cta': 'Démarrer le Chat en Direct',
     
     // Footer
     'footer.rights': 'Tous droits réservés.',
@@ -392,13 +562,85 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Services Section
     'services.title': 'Unsere KI-Dienstleistungen',
-    'services.subtitle': 'Umfassende KI-Lösungen zur Transformation Ihrer Geschäftsabläufe',
+    'services.subtitle': 'Umfassende KI-Lösungen zur Transformation Ihrer Geschäftsabläufe und Wachstumsförderung',
     'services.viewAll': 'Alle Dienstleistungen Anzeigen',
     'services.learnMore': 'Mehr erfahren',
+    
+    'services.optimization.title': 'KI-Geschäftsaufgabenoptimierung',
+    'services.optimization.desc': 'Optimieren Sie Abläufe und automatisieren Sie wiederkehrende Aufgaben mit unseren KI-gestützten Workflow-Optimierungslösungen.',
+    
+    'services.sales.title': 'KI-verbessertes Umsatzwachstum',
+    'services.sales.desc': 'Nutzen Sie prädiktive Analysen und Kundeneinblicke, um Chancen zu identifizieren und Konversionsraten zu erhöhen.',
+    
+    'services.marketing.title': 'KI-gestützte Marketingstrategien',
+    'services.marketing.desc': 'Erstellen Sie datengesteuerte Marketingkampagnen mit personalisierten Inhalten und automatischer Optimierung.',
+    
+    'services.social.title': 'KI-Social-Media-Optimierung',
+    'services.social.desc': 'Verbessern Sie Ihre Social-Media-Präsenz mit KI-gestützter Content-Erstellung und Leistungsanalyse.',
+    
+    'services.analysis.title': 'Erweiterte KI-Datenanalyse',
+    'services.analysis.desc': 'Verwandeln Sie Rohdaten in umsetzbare Erkenntnisse mit unseren fortschrittlichen Analyselösungen.',
+    
+    'services.integration.title': 'KI-Integrationsdienste',
+    'services.integration.desc': 'Integrieren Sie KI-Funktionen nahtlos in Ihre bestehenden Systeme und Arbeitsabläufe.',
+    
+    'services.webdev.title': 'Webentwicklung mit KI',
+    'services.webdev.desc': 'Erstellen Sie hochmoderne Websites mit KI-unterstützten Entwicklungstools.',
+    
+    'services.webopt.title': 'Website-Optimierung mit KI',
+    'services.webopt.desc': 'Verbessern Sie die Leistung, SEO und Konversionsraten Ihrer bestehenden Website.',
+    
+    'services.website.title': 'Website-Entwicklung',
+    'services.website.desc': 'Professionelle Website-Entwicklung mit modernen Technologien, responsivem Design und optimaler Leistung.',
+    
+    'services.shopify.title': 'Shopify E-Commerce-Entwicklung',
+    'services.shopify.desc': 'Erstellen Sie leistungsstarke Online-Shops mit Shopify, einschließlich benutzerdefinierter Themes, Apps und Integrationen.',
+    
+    'services.woocommerce.title': 'WooCommerce-Entwicklung',
+    'services.woocommerce.desc': 'Erstellen Sie flexible WordPress-basierte E-Commerce-Lösungen mit WooCommerce-Anpassung.',
+    
+    'services.bigcommerce.title': 'BigCommerce-Entwicklung',
+    'services.bigcommerce.desc': 'E-Commerce-Lösungen auf Unternehmensebene mit BigCommerce für skalierbare Online-Geschäfte.',
+    
+    // All Services Page
+    'allServices.title': 'Alle Unsere Dienstleistungen',
+    'allServices.subtitle': 'Umfassende Lösungen zur Transformation Ihres Unternehmens mit KI und modernen Webtechnologien',
+    'allServices.cta': 'Beginnen Sie mit Unseren Dienstleistungen',
+    
+    // Service Detail Pages
+    'serviceDetail.backToServices': 'Zurück zu Dienstleistungen',
+    'serviceDetail.keyFeatures': 'Hauptmerkmale',
+    'serviceDetail.benefits': 'Vorteile',
+    'serviceDetail.process': 'Unser Prozess',
+    'serviceDetail.ready': 'Bereit zu Beginnen?',
+    'serviceDetail.discuss': 'Lassen Sie uns besprechen, wie unser',
+    'serviceDetail.transform': 'Ihr Unternehmen transformieren kann.',
     
     // Why AI Section
     'whyai.title': 'Warum Ihr Unternehmen KI Braucht',
     'whyai.subtitle': 'Die Geschäftslandschaft verändert sich schnell. Unternehmen, die jetzt KI einsetzen, werden erfolgreich sein.',
+    
+    'whyai.advantage.title': 'Wettbewerbsvorteil',
+    'whyai.advantage.desc': 'Unternehmen, die KI-Lösungen implementieren, erlangen einen erheblichen Vorteil gegenüber Wettbewerbern, wobei 63% der Unternehmen nach der KI-Einführung höhere Einnahmen melden.',
+    
+    'whyai.efficiency.title': 'Betriebliche Effizienz',
+    'whyai.efficiency.desc': 'KI automatisiert wiederkehrende Aufgaben, reduziert die Betriebskosten um bis zu 40% und ermöglicht es Ihrem Team, sich auf strategische Aktivitäten zu konzentrieren.',
+    
+    'whyai.decision.title': 'Verbesserte Entscheidungsfindung',
+    'whyai.decision.desc': 'Datengestützte Erkenntnisse aus KI ermöglichen bessere Geschäftsentscheidungen, wobei 87% der Führungskräfte eine sicherere strategische Planung melden.',
+    
+    'whyai.experience.title': 'Kundenerfahrung',
+    'whyai.experience.desc': 'KI-gestützte Personalisierung erhöht die Kundenzufriedenheit um 35% und verbessert die Bindungsraten durch maßgeschneiderte Erlebnisse und 24/7-Support.',
+    
+    // Why AI Features
+    'whyai.features.title': 'KI-gestützte Funktionen',
+    'whyai.features.realtime': 'Echtzeit-Datenverarbeitung',
+    'whyai.features.predictive': 'Prädiktive Analytik',
+    'whyai.features.automated': 'Automatisierte Arbeitsabläufe',
+    'whyai.features.smart': 'Intelligente Empfehlungen',
+    'whyai.features.continuous': 'Kontinuierliches Lernen',
+    'whyai.features.scalable': 'Skalierbare Lösungen',
+    'whyai.cta': 'Beginnen Sie Ihre KI-Reise',
     
     // Contact Section
     'contact.title': 'Kontaktieren Sie Uns',
@@ -411,10 +653,23 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.send': 'Nachricht Senden',
     'contact.form.sending': 'Wird gesendet...',
     'contact.form.success': 'Nachricht erfolgreich gesendet!',
+    'contact.form.successDesc': 'Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.',
     'contact.form.error': 'Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.',
+    'contact.form.messagePlaceholder': 'Erzählen Sie uns von Ihrem Projekt...',
     'contact.info.title': 'Kontaktinformationen',
     'contact.info.address': 'Chisinau, Moldawien',
     'contact.info.available': 'Rund um die Uhr für Ihre Geschäftsbedürfnisse verfügbar',
+    'contact.info.email': 'E-Mail',
+    'contact.info.phone': 'Telefon',
+    'contact.info.location': 'Adresse',
+    'contact.hours.title': 'Geschäftszeiten',
+    'contact.hours.weekdays': 'Montag - Freitag',
+    'contact.hours.saturday': 'Samstag',
+    'contact.hours.sunday': 'Sonntag',
+    'contact.hours.closed': 'Geschlossen',
+    'contact.quick.title': 'Benötigen Sie eine schnelle Antwort?',
+    'contact.quick.desc': 'Für dringende Anfragen rufen Sie uns bitte direkt an oder nutzen Sie unseren Live-Chat.',
+    'contact.quick.cta': 'Live-Chat Starten',
     
     // Footer
     'footer.rights': 'Alle Rechte vorbehalten.',
@@ -444,9 +699,81 @@ const translations: Record<Language, Record<string, string>> = {
     'services.viewAll': 'Посмотреть Все Услуги',
     'services.learnMore': 'Узнать больше',
     
+    'services.optimization.title': 'Оптимизация Бизнес-Задач с ИИ',
+    'services.optimization.desc': 'Оптимизируйте операции и автоматизируйте повторяющиеся задачи с помощью наших решений для оптимизации рабочих процессов на основе ИИ.',
+    
+    'services.sales.title': 'Рост Продаж с Помощью ИИ',
+    'services.sales.desc': 'Используйте прогнозную аналитику и информацию о клиентах для выявления возможностей и увеличения коэффициента конверсии.',
+    
+    'services.marketing.title': 'Маркетинговые Стратегии на Основе ИИ',
+    'services.marketing.desc': 'Создавайте маркетинговые кампании на основе данных с персонализированным контентом и автоматической оптимизацией.',
+    
+    'services.social.title': 'Оптимизация Социальных Сетей с ИИ',
+    'services.social.desc': 'Улучшите свое присутствие в социальных сетях с помощью создания контента и анализа производительности на основе ИИ.',
+    
+    'services.analysis.title': 'Расширенный Анализ Данных с ИИ',
+    'services.analysis.desc': 'Превратите необработанные данные в практические идеи с помощью наших передовых аналитических решений.',
+    
+    'services.integration.title': 'Услуги Интеграции ИИ',
+    'services.integration.desc': 'Беспрепятственно интегрируйте возможности ИИ в ваши существующие системы и рабочие процессы.',
+    
+    'services.webdev.title': 'Веб-разработка с ИИ',
+    'services.webdev.desc': 'Создавайте передовые веб-сайты с помощью инструментов разработки с поддержкой ИИ.',
+    
+    'services.webopt.title': 'Оптимизация Веб-сайта с ИИ',
+    'services.webopt.desc': 'Улучшите производительность, SEO и коэффициент конверсии вашего существующего веб-сайта.',
+    
+    'services.website.title': 'Разработка Веб-сайтов',
+    'services.website.desc': 'Профессиональная разработка веб-сайтов с современными технологиями, адаптивным дизайном и оптимальной производительностью.',
+    
+    'services.shopify.title': 'Разработка E-commerce Shopify',
+    'services.shopify.desc': 'Создавайте мощные интернет-магазины с Shopify, включая пользовательские темы, приложения и интеграции.',
+    
+    'services.woocommerce.title': 'Разработка WooCommerce',
+    'services.woocommerce.desc': 'Создавайте гибкие решения электронной коммерции на основе WordPress с настройкой WooCommerce.',
+    
+    'services.bigcommerce.title': 'Разработка BigCommerce',
+    'services.bigcommerce.desc': 'Решения электронной коммерции корпоративного уровня с BigCommerce для масштабируемого онлайн-бизнеса.',
+    
+    // All Services Page
+    'allServices.title': 'Все Наши Услуги',
+    'allServices.subtitle': 'Комплексные решения для трансформации вашего бизнеса с помощью ИИ и современных веб-технологий',
+    'allServices.cta': 'Начните с Наших Услуг',
+    
+    // Service Detail Pages
+    'serviceDetail.backToServices': 'Назад к Услугам',
+    'serviceDetail.keyFeatures': 'Ключевые Особенности',
+    'serviceDetail.benefits': 'Преимущества',
+    'serviceDetail.process': 'Наш Процесс',
+    'serviceDetail.ready': 'Готовы Начать?',
+    'serviceDetail.discuss': 'Давайте обсудим, как наш',
+    'serviceDetail.transform': 'может трансформировать ваш бизнес.',
+    
     // Why AI Section
     'whyai.title': 'Почему Вашему Бизнесу Нужен ИИ',
     'whyai.subtitle': 'Бизнес-ландшафт быстро меняется. Компании, которые внедряют ИИ сейчас, будут процветать.',
+    
+    'whyai.advantage.title': 'Конкурентное Преимущество',
+    'whyai.advantage.desc': 'Компании, внедряющие решения ИИ, получают значительное преимущество перед конкурентами: 63% предприятий сообщают об увеличении доходов после внедрения ИИ.',
+    
+    'whyai.efficiency.title': 'Операционная Эффективность',
+    'whyai.efficiency.desc': 'ИИ автоматизирует повторяющиеся задачи, снижая операционные расходы до 40% и позволяя вашей команде сосредоточиться на стратегической деятельности.',
+    
+    'whyai.decision.title': 'Улучшенное Принятие Решений',
+    'whyai.decision.desc': 'Аналитика на основе данных ИИ обеспечивает лучшие бизнес-решения: 87% руководителей сообщают о более уверенном стратегическом планировании.',
+    
+    'whyai.experience.title': 'Клиентский Опыт',
+    'whyai.experience.desc': 'Персонализация на основе ИИ повышает удовлетворенность клиентов на 35% и улучшает показатели удержания благодаря индивидуальному опыту и поддержке 24/7.',
+    
+    // Why AI Features
+    'whyai.features.title': 'Функции на Основе ИИ',
+    'whyai.features.realtime': 'Обработка данных в реальном времени',
+    'whyai.features.predictive': 'Прогнозная аналитика',
+    'whyai.features.automated': 'Автоматизированные рабочие процессы',
+    'whyai.features.smart': 'Умные рекомендации',
+    'whyai.features.continuous': 'Непрерывное обучение',
+    'whyai.features.scalable': 'Масштабируемые решения',
+    'whyai.cta': 'Начните Свой Путь с ИИ',
     
     // Contact Section
     'contact.title': 'Свяжитесь с Нами',
@@ -459,10 +786,23 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.send': 'Отправить Сообщение',
     'contact.form.sending': 'Отправка...',
     'contact.form.success': 'Сообщение успешно отправлено!',
+    'contact.form.successDesc': 'Мы свяжемся с вами в течение 24 часов.',
     'contact.form.error': 'Ошибка при отправке сообщения. Пожалуйста, попробуйте еще раз.',
+    'contact.form.messagePlaceholder': 'Расскажите нам о вашем проекте...',
     'contact.info.title': 'Контактная Информация',
     'contact.info.address': 'Кишинев, Молдова',
     'contact.info.available': 'Доступны 24/7 для ваших бизнес-потребностей',
+    'contact.info.email': 'Электронная почта',
+    'contact.info.phone': 'Телефон',
+    'contact.info.location': 'Адрес',
+    'contact.hours.title': 'Часы Работы',
+    'contact.hours.weekdays': 'Понедельник - Пятница',
+    'contact.hours.saturday': 'Суббота',
+    'contact.hours.sunday': 'Воскресенье',
+    'contact.hours.closed': 'Закрыто',
+    'contact.quick.title': 'Нужен быстрый ответ?',
+    'contact.quick.desc': 'Для срочных запросов звоните нам напрямую или используйте наш онлайн-чат.',
+    'contact.quick.cta': 'Начать Онлайн-чат',
     
     // Footer
     'footer.rights': 'Все права защищены.',
