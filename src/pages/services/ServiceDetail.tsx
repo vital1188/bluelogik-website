@@ -393,10 +393,13 @@ const ServiceDetail: React.FC = () => {
 
           {/* Hero Section */}
           <div className="mb-12 md:mb-16">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-thin mb-4 md:mb-6">
-              <span className="gradient-text-blue">AI</span> {service.title.replace('AI ', '').replace('AI-', '')}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4 md:mb-6 text-gray-900"
+                style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)' }}>
+              <span className="gradient-text-blue">{service.title.split(' ')[0]}</span>{' '}
+              {service.title.split(' ').slice(1).join(' ').replace('AI ', '').replace('AI-', '').replace(' with AI', '')}
             </h1>
-            <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl">
+            <p className="text-base md:text-lg lg:text-xl text-gray-700 max-w-3xl font-medium leading-relaxed"
+               style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}>
               {service.description}
             </p>
           </div>
@@ -404,7 +407,8 @@ const ServiceDetail: React.FC = () => {
           {/* Features Section */}
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16">
             <div>
-              <h2 className="text-xl md:text-2xl font-light mb-4 md:mb-6">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-gray-900"
+                  style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}>
                 <span className="gradient-text-blue">{t('serviceDetail.keyFeatures')}</span>
               </h2>
               <ul className="space-y-3 md:space-y-4">
@@ -419,7 +423,8 @@ const ServiceDetail: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-xl md:text-2xl font-light mb-4 md:mb-6">
+              <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-gray-900"
+                  style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}>
                 <span className="gradient-text-blue">{t('serviceDetail.benefits')}</span>
               </h2>
               <ul className="space-y-3 md:space-y-4">
@@ -436,7 +441,8 @@ const ServiceDetail: React.FC = () => {
 
           {/* Process Section */}
           <div className="mb-12 md:mb-16">
-            <h2 className="text-xl md:text-2xl font-light mb-6 md:mb-8 text-center">
+            <h2 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-center text-gray-900"
+                style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}>
               <span className="gradient-text-blue">{t('serviceDetail.process')}</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-4">
