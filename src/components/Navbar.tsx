@@ -57,7 +57,7 @@ const languages = [
   const currentLang = languages.find(lang => lang.code === language);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <nav className={`relative z-50 transition-all duration-500 ${
       scrolled ? 'bg-white/80 backdrop-blur-md' : 'bg-transparent'
     }`}>
       <div className="container-wide">
@@ -107,7 +107,7 @@ const languages = [
                       <button
                         key={lang.code}
                         onClick={() => {
-                          setLanguage(lang.code as 'en' | 'fr' | 'ro' | 'ru');
+                          setLanguage(lang.code as any);
                           setLangOpen(false);
                         }}
                         className={`w-full px-4 py-3 text-left text-sm font-light hover:bg-gray-50 transition-colors duration-200 flex items-center space-x-3 ${
@@ -179,7 +179,7 @@ const languages = [
                     <button
                       key={lang.code}
                       onClick={() => {
-                        setLanguage(lang.code as 'en' | 'fr' | 'ro' | 'ru');
+                        setLanguage(lang.code as any);
                         setIsOpen(false);
                       }}
                       className={`px-4 py-2 text-sm font-light border ${
