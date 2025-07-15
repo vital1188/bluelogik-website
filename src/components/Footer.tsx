@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -24,9 +25,9 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
           {/* Logo & Copyright */}
           <div>
-            <Link to="/" className="text-lg md:text-xl font-thin tracking-wider inline-block mb-3 md:mb-4">
-              <span className="gradient-text-blue">Blue</span>Logik
-            </Link>
+            <div className="mb-3 md:mb-4">
+              <Logo />
+            </div>
             <p className="text-xs md:text-sm text-gray-500">
               © {currentYear} BlueLogik. {t('footer.rights')}
             </p>

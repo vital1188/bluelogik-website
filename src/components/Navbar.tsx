@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import Logo from './Logo';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,44 +65,7 @@ const Navbar: React.FC = () => {
       <div className="container-wide">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="relative group">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="flex items-center space-x-2"
-            >
-              <span className="text-2xl font-thin tracking-wider relative">
-                <motion.span 
-                  className="gradient-text-blue inline-block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    transition: { duration: 0.2 }
-                  }}
-                >
-                  Blue
-                </motion.span>
-                <motion.span 
-                  className="inline-block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                >
-                  Logik
-                </motion.span>
-              </span>
-              {/* Animated underline */}
-              <motion.div
-                className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-blue-500 to-transparent"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-              />
-            </motion.div>
-          </Link>
+          <Logo />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-12">
