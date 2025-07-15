@@ -1,9 +1,5 @@
-import OpenAI from 'openai';
-
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-});
+// OpenAI import removed to prevent browser initialization errors
+// This will be used in the backend API endpoint instead
 
 interface Message {
   role: 'user' | 'assistant';
@@ -61,56 +57,9 @@ IMPORTANT GUIDELINES:
 `;
 
 export async function handleChatRequest(request: ChatRequest): Promise<{ message: string }> {
-  try {
-    // Check if OpenAI API key is configured
-    if (!import.meta.env.VITE_OPENAI_API_KEY) {
-      return {
-        message: "I'm currently unavailable. Please contact us directly at hello@bluelogik.com or call +373 784 70 679 for immediate assistance with our AI solutions."
-      };
-    }
-
-    // Prepare conversation history for OpenAI
-    const messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] = [
-      {
-        role: 'system',
-        content: BLUELOGIK_CONTEXT
-      }
-    ];
-
-    // Add conversation history (last 10 messages for context)
-    request.conversationHistory.slice(-10).forEach(msg => {
-      messages.push({
-        role: msg.role,
-        content: msg.content
-      });
-    });
-
-    // Add current user message
-    messages.push({
-      role: 'user',
-      content: request.message
-    });
-
-    // Call OpenAI API
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: messages,
-      max_tokens: 500,
-      temperature: 0.7,
-      store: true,
-    });
-
-    const response = completion.choices[0]?.message?.content || 
-      "I apologize, but I couldn't process your request. Please try again or contact us directly.";
-
-    return { message: response };
-
-  } catch (error) {
-    console.error('OpenAI API error:', error);
-    return {
-      message: "I'm experiencing technical difficulties. Please contact us directly at hello@bluelogik.com or call +373 784 70 679 for immediate assistance with our AI solutions."
-    };
-  }
+  // This function is intended for backend use with OpenAI API
+  // For now, redirect to mock response for client-side usage
+  return mockChatResponse(request);
 }
 
 // For development/testing without API endpoint
