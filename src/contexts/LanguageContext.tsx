@@ -1245,15 +1245,38 @@ const translations: Record<Language, Record<string, string>> = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Helper function to get saved language from localStorage
+const getSavedLanguage = (): Language => {
+  try {
+    const saved = localStorage.getItem('bluelogik-language');
+    if (saved && ['en', 'es', 'fr', 'de', 'ro', 'ru'].includes(saved)) {
+      return saved as Language;
+    }
+  } catch (error) {
+    console.error('Error reading language from localStorage:', error);
+  }
+  return 'en';
+};
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>(getSavedLanguage);
+
+  // Save language to localStorage whenever it changes
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang);
+    try {
+      localStorage.setItem('bluelogik-language', lang);
+    } catch (error) {
+      console.error('Error saving language to localStorage:', error);
+    }
+  };
 
   const t = (key: string): string => {
     return translations[language][key] || translations['en'][key] || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );
