@@ -15,8 +15,8 @@ const Footer: React.FC = () => {
   ];
 
   const legalLinks = [
-    { name: t('footer.privacy'), href: '#' },
-    { name: t('footer.terms'), href: '#' },
+    { name: t('footer.privacy'), href: '/privacy-policy' },
+    { name: t('footer.terms'), href: '/terms-conditions' },
   ];
 
   return (
@@ -49,13 +49,14 @@ const Footer: React.FC = () => {
           {/* Legal */}
           <div className="flex gap-4 md:gap-6 md:justify-end">
             {legalLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-xs md:text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                to={link.href}
+                className="text-xs md:text-sm text-gray-500 hover:text-gray-900 transition-colors font-medium"
+                style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.03)' }}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

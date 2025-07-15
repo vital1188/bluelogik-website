@@ -8,6 +8,8 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AllServices from './pages/AllServices';
 import ServiceDetail from './pages/services/ServiceDetail';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/services" element={<AllServices />} />
                 <Route path="/services/:serviceId" element={<ServiceDetail />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-conditions" element={<TermsConditions />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
