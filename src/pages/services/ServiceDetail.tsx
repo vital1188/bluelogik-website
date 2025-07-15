@@ -23,343 +23,343 @@ const ServiceDetail: React.FC = () => {
     window.scrollTo(0, 0);
   }, [serviceId]);
 
-  // Service data mapping
+  // Service data mapping with translation keys
   const services: Record<string, ServiceInfo> = {
     'business-optimization': {
       id: 'business-optimization',
       icon: () => null,
-      title: 'AI Business Task Optimization',
-      description: 'Transform your business operations with intelligent automation that streamlines workflows, reduces manual tasks, and maximizes efficiency.',
+      title: t('services.optimization.title'),
+      description: t('services.optimization.desc'),
       features: [
-        'Intelligent workflow automation',
-        'Task prioritization algorithms',
-        'Resource allocation optimization',
-        'Real-time performance monitoring',
-        'Predictive maintenance scheduling'
+        t('services.optimization.feature1'),
+        t('services.optimization.feature2'),
+        t('services.optimization.feature3'),
+        t('services.optimization.feature4'),
+        t('services.optimization.feature5')
       ],
       benefits: [
-        'Reduce operational costs by up to 40%',
-        'Increase productivity by 60%',
-        'Minimize human error',
-        'Free up staff for strategic tasks',
-        '24/7 automated operations'
+        t('services.optimization.benefit1'),
+        t('services.optimization.benefit2'),
+        t('services.optimization.benefit3'),
+        t('services.optimization.benefit4'),
+        t('services.optimization.benefit5')
       ],
       process: [
-        'Initial business process assessment',
-        'AI model customization',
-        'Integration with existing systems',
-        'Staff training and onboarding',
-        'Continuous optimization'
+        t('services.optimization.process1'),
+        t('services.optimization.process2'),
+        t('services.optimization.process3'),
+        t('services.optimization.process4'),
+        t('services.optimization.process5')
       ],
-      cta: 'Start Optimizing Today'
+      cta: t('services.optimization.cta')
     },
     'sales-growth': {
       id: 'sales-growth',
       icon: () => null,
-      title: 'AI-Enhanced Sales Growth',
-      description: 'Leverage predictive analytics and customer insights to identify opportunities, optimize pricing strategies, and increase conversion rates.',
+      title: t('services.sales.title'),
+      description: t('services.sales.desc'),
       features: [
-        'Predictive sales forecasting',
-        'Customer behavior analysis',
-        'Dynamic pricing optimization',
-        'Lead scoring and prioritization',
-        'Personalized recommendations'
+        t('services.sales.feature1'),
+        t('services.sales.feature2'),
+        t('services.sales.feature3'),
+        t('services.sales.feature4'),
+        t('services.sales.feature5')
       ],
       benefits: [
-        'Increase sales by up to 35%',
-        'Improve conversion rates by 50%',
-        'Reduce customer acquisition costs',
-        'Enhanced customer lifetime value',
-        'Data-driven decision making'
+        t('services.sales.benefit1'),
+        t('services.sales.benefit2'),
+        t('services.sales.benefit3'),
+        t('services.sales.benefit4'),
+        t('services.sales.benefit5')
       ],
       process: [
-        'Sales data analysis',
-        'AI model training',
-        'CRM integration',
-        'Sales team training',
-        'Performance tracking'
+        t('services.sales.process1'),
+        t('services.sales.process2'),
+        t('services.sales.process3'),
+        t('services.sales.process4'),
+        t('services.sales.process5')
       ],
-      cta: 'Boost Your Sales'
+      cta: t('services.sales.cta')
     },
     'marketing-strategies': {
       id: 'marketing-strategies',
       icon: () => null,
-      title: 'AI-Powered Marketing Strategies',
-      description: 'Create data-driven marketing campaigns with personalized content and automated optimization to maximize ROI and customer engagement.',
+      title: t('services.marketing.title'),
+      description: t('services.marketing.desc'),
       features: [
-        'Automated content generation',
-        'Audience segmentation',
-        'Campaign performance optimization',
-        'Multi-channel automation',
-        'A/B testing at scale'
+        t('services.marketing.feature1'),
+        t('services.marketing.feature2'),
+        t('services.marketing.feature3'),
+        t('services.marketing.feature4'),
+        t('services.marketing.feature5')
       ],
       benefits: [
-        'Increase ROI by up to 45%',
-        'Reduce marketing costs by 30%',
-        'Improve engagement rates',
-        'Personalized customer experiences',
-        'Real-time campaign optimization'
+        t('services.marketing.benefit1'),
+        t('services.marketing.benefit2'),
+        t('services.marketing.benefit3'),
+        t('services.marketing.benefit4'),
+        t('services.marketing.benefit5')
       ],
       process: [
-        'Marketing audit and analysis',
-        'AI strategy development',
-        'Platform integration',
-        'Campaign launch',
-        'Continuous optimization'
+        t('services.marketing.process1'),
+        t('services.marketing.process2'),
+        t('services.marketing.process3'),
+        t('services.marketing.process4'),
+        t('services.marketing.process5')
       ],
-      cta: 'Transform Your Marketing'
+      cta: t('services.marketing.cta')
     },
     'social-media': {
       id: 'social-media',
       icon: () => null,
-      title: 'AI Social Media Optimization',
-      description: 'Enhance your social media presence with AI-powered content creation, scheduling, and performance analytics.',
+      title: t('services.social.title'),
+      description: t('services.social.desc'),
       features: [
-        'Automated content scheduling',
-        'Sentiment analysis',
-        'Trend identification',
-        'Engagement optimization',
-        'Influencer identification'
+        t('services.social.feature1'),
+        t('services.social.feature2'),
+        t('services.social.feature3'),
+        t('services.social.feature4'),
+        t('services.social.feature5')
       ],
       benefits: [
-        'Increase engagement by 70%',
-        'Save 20+ hours per week',
-        'Consistent brand presence',
-        'Data-driven content strategy',
-        'Improved customer relationships'
+        t('services.social.benefit1'),
+        t('services.social.benefit2'),
+        t('services.social.benefit3'),
+        t('services.social.benefit4'),
+        t('services.social.benefit5')
       ],
       process: [
-        'Social media audit',
-        'AI tool setup',
-        'Content strategy development',
-        'Automation implementation',
-        'Performance monitoring'
+        t('services.social.process1'),
+        t('services.social.process2'),
+        t('services.social.process3'),
+        t('services.social.process4'),
+        t('services.social.process5')
       ],
-      cta: 'Optimize Social Media'
+      cta: t('services.social.cta')
     },
     'data-analysis': {
       id: 'data-analysis',
       icon: () => null,
-      title: 'Advanced AI Data Analysis',
-      description: 'Transform raw data into actionable insights with our advanced analytics solutions.',
+      title: t('services.analysis.title'),
+      description: t('services.analysis.desc'),
       features: [
-        'Predictive analytics',
-        'Pattern recognition',
-        'Anomaly detection',
-        'Real-time dashboards',
-        'Custom reporting'
+        t('services.analysis.feature1'),
+        t('services.analysis.feature2'),
+        t('services.analysis.feature3'),
+        t('services.analysis.feature4'),
+        t('services.analysis.feature5')
       ],
       benefits: [
-        'Make data-driven decisions',
-        'Identify hidden opportunities',
-        'Reduce risks',
-        'Improve forecasting accuracy',
-        'Competitive advantage'
+        t('services.analysis.benefit1'),
+        t('services.analysis.benefit2'),
+        t('services.analysis.benefit3'),
+        t('services.analysis.benefit4'),
+        t('services.analysis.benefit5')
       ],
       process: [
-        'Data assessment',
-        'Analytics setup',
-        'Model development',
-        'Dashboard creation',
-        'Insights delivery'
+        t('services.analysis.process1'),
+        t('services.analysis.process2'),
+        t('services.analysis.process3'),
+        t('services.analysis.process4'),
+        t('services.analysis.process5')
       ],
-      cta: 'Unlock Your Data'
+      cta: t('services.analysis.cta')
     },
     'integration': {
       id: 'integration',
       icon: () => null,
-      title: 'AI Integration Services',
-      description: 'Seamlessly integrate AI capabilities into your existing systems and workflows.',
+      title: t('services.integration.title'),
+      description: t('services.integration.desc'),
       features: [
-        'API integration',
-        'Custom AI solutions',
-        'Legacy system compatibility',
-        'Cloud deployment',
-        'Security compliance'
+        t('services.integration.feature1'),
+        t('services.integration.feature2'),
+        t('services.integration.feature3'),
+        t('services.integration.feature4'),
+        t('services.integration.feature5')
       ],
       benefits: [
-        'Minimal disruption',
-        'Faster implementation',
-        'Scalable solutions',
-        'Cost-effective integration',
-        'Future-proof technology'
+        t('services.integration.benefit1'),
+        t('services.integration.benefit2'),
+        t('services.integration.benefit3'),
+        t('services.integration.benefit4'),
+        t('services.integration.benefit5')
       ],
       process: [
-        'System assessment',
-        'Integration planning',
-        'Development and testing',
-        'Deployment',
-        'Support and maintenance'
+        t('services.integration.process1'),
+        t('services.integration.process2'),
+        t('services.integration.process3'),
+        t('services.integration.process4'),
+        t('services.integration.process5')
       ],
-      cta: 'Start Integration'
+      cta: t('services.integration.cta')
     },
     'web-development': {
       id: 'web-development',
       icon: () => null,
-      title: 'AI-Powered Web Development',
-      description: 'Build intelligent websites and applications with AI-enhanced features.',
+      title: t('services.webdev.title'),
+      description: t('services.webdev.desc'),
       features: [
-        'Smart user interfaces',
-        'Personalization engines',
-        'Chatbot integration',
-        'Performance optimization',
-        'Accessibility features'
+        t('services.webdev.feature1'),
+        t('services.webdev.feature2'),
+        t('services.webdev.feature3'),
+        t('services.webdev.feature4'),
+        t('services.webdev.feature5')
       ],
       benefits: [
-        'Enhanced user experience',
-        'Higher conversion rates',
-        'Reduced bounce rates',
-        'Improved SEO',
-        'Competitive edge'
+        t('services.webdev.benefit1'),
+        t('services.webdev.benefit2'),
+        t('services.webdev.benefit3'),
+        t('services.webdev.benefit4'),
+        t('services.webdev.benefit5')
       ],
       process: [
-        'Requirements analysis',
-        'Design and prototyping',
-        'Development',
-        'Testing and optimization',
-        'Launch and support'
+        t('services.webdev.process1'),
+        t('services.webdev.process2'),
+        t('services.webdev.process3'),
+        t('services.webdev.process4'),
+        t('services.webdev.process5')
       ],
-      cta: 'Build Smart Websites'
+      cta: t('services.webdev.cta')
     },
     'web-optimization': {
       id: 'web-optimization',
       icon: () => null,
-      title: 'AI Website Optimization',
-      description: 'Optimize your website performance with AI-driven insights and automation.',
+      title: t('services.webopt.title'),
+      description: t('services.webopt.desc'),
       features: [
-        'SEO optimization',
-        'Speed optimization',
-        'Conversion optimization',
-        'User behavior analysis',
-        'Content optimization'
+        t('services.webopt.feature1'),
+        t('services.webopt.feature2'),
+        t('services.webopt.feature3'),
+        t('services.webopt.feature4'),
+        t('services.webopt.feature5')
       ],
       benefits: [
-        'Improve search rankings',
-        'Faster load times',
-        'Higher conversion rates',
-        'Better user experience',
-        'Increased revenue'
+        t('services.webopt.benefit1'),
+        t('services.webopt.benefit2'),
+        t('services.webopt.benefit3'),
+        t('services.webopt.benefit4'),
+        t('services.webopt.benefit5')
       ],
       process: [
-        'Website audit',
-        'Optimization strategy',
-        'Implementation',
-        'Testing and refinement',
-        'Ongoing monitoring'
+        t('services.webopt.process1'),
+        t('services.webopt.process2'),
+        t('services.webopt.process3'),
+        t('services.webopt.process4'),
+        t('services.webopt.process5')
       ],
-      cta: 'Optimize Your Site'
+      cta: t('services.webopt.cta')
     },
     'website-development': {
       id: 'website-development',
       icon: () => null,
-      title: 'Website Development',
-      description: 'Professional website development with modern technologies, responsive design, and optimal performance.',
+      title: t('services.website.title'),
+      description: t('services.website.desc'),
       features: [
-        'Custom website design',
-        'Responsive development',
-        'Modern frameworks (React, Vue, Angular)',
-        'CMS integration',
-        'Performance optimization'
+        t('services.website.feature1'),
+        t('services.website.feature2'),
+        t('services.website.feature3'),
+        t('services.website.feature4'),
+        t('services.website.feature5')
       ],
       benefits: [
-        'Professional online presence',
-        'Mobile-friendly design',
-        'Fast loading times',
-        'SEO-ready structure',
-        'Scalable architecture'
+        t('services.website.benefit1'),
+        t('services.website.benefit2'),
+        t('services.website.benefit3'),
+        t('services.website.benefit4'),
+        t('services.website.benefit5')
       ],
       process: [
-        'Requirements gathering',
-        'Design mockups',
-        'Development phase',
-        'Testing and QA',
-        'Launch and support'
+        t('services.website.process1'),
+        t('services.website.process2'),
+        t('services.website.process3'),
+        t('services.website.process4'),
+        t('services.website.process5')
       ],
-      cta: 'Start Your Project'
+      cta: t('services.website.cta')
     },
     'ecommerce-shopify': {
       id: 'ecommerce-shopify',
       icon: () => null,
-      title: 'Shopify E-commerce Development',
-      description: 'Build powerful online stores with Shopify, including custom themes, apps, and integrations.',
+      title: t('services.shopify.title'),
+      description: t('services.shopify.desc'),
       features: [
-        'Custom Shopify themes',
-        'App development',
-        'Payment gateway integration',
-        'Inventory management',
-        'Multi-channel selling'
+        t('services.shopify.feature1'),
+        t('services.shopify.feature2'),
+        t('services.shopify.feature3'),
+        t('services.shopify.feature4'),
+        t('services.shopify.feature5')
       ],
       benefits: [
-        'Quick time to market',
-        'Secure payment processing',
-        'Mobile-optimized stores',
-        'Built-in SEO features',
-        'Scalable platform'
+        t('services.shopify.benefit1'),
+        t('services.shopify.benefit2'),
+        t('services.shopify.benefit3'),
+        t('services.shopify.benefit4'),
+        t('services.shopify.benefit5')
       ],
       process: [
-        'Store planning',
-        'Theme customization',
-        'App integration',
-        'Product setup',
-        'Launch and training'
+        t('services.shopify.process1'),
+        t('services.shopify.process2'),
+        t('services.shopify.process3'),
+        t('services.shopify.process4'),
+        t('services.shopify.process5')
       ],
-      cta: 'Build Your Store'
+      cta: t('services.shopify.cta')
     },
     'ecommerce-woocommerce': {
       id: 'ecommerce-woocommerce',
       icon: () => null,
-      title: 'WooCommerce Development',
-      description: 'Create flexible WordPress-based e-commerce solutions with WooCommerce customization.',
+      title: t('services.woocommerce.title'),
+      description: t('services.woocommerce.desc'),
       features: [
-        'Custom WooCommerce themes',
-        'Plugin development',
-        'Payment integration',
-        'Product management',
-        'WordPress integration'
+        t('services.woocommerce.feature1'),
+        t('services.woocommerce.feature2'),
+        t('services.woocommerce.feature3'),
+        t('services.woocommerce.feature4'),
+        t('services.woocommerce.feature5')
       ],
       benefits: [
-        'Full customization control',
-        'Cost-effective solution',
-        'SEO-friendly platform',
-        'Large plugin ecosystem',
-        'Content marketing ready'
+        t('services.woocommerce.benefit1'),
+        t('services.woocommerce.benefit2'),
+        t('services.woocommerce.benefit3'),
+        t('services.woocommerce.benefit4'),
+        t('services.woocommerce.benefit5')
       ],
       process: [
-        'WordPress setup',
-        'WooCommerce configuration',
-        'Theme development',
-        'Plugin integration',
-        'Testing and launch'
+        t('services.woocommerce.process1'),
+        t('services.woocommerce.process2'),
+        t('services.woocommerce.process3'),
+        t('services.woocommerce.process4'),
+        t('services.woocommerce.process5')
       ],
-      cta: 'Start Selling Online'
+      cta: t('services.woocommerce.cta')
     },
     'ecommerce-bigcommerce': {
       id: 'ecommerce-bigcommerce',
       icon: () => null,
-      title: 'BigCommerce Development',
-      description: 'Enterprise-level e-commerce solutions with BigCommerce for scalable online businesses.',
+      title: t('services.bigcommerce.title'),
+      description: t('services.bigcommerce.desc'),
       features: [
-        'Enterprise features',
-        'API-first architecture',
-        'Multi-storefront capability',
-        'B2B functionality',
-        'Advanced analytics'
+        t('services.bigcommerce.feature1'),
+        t('services.bigcommerce.feature2'),
+        t('services.bigcommerce.feature3'),
+        t('services.bigcommerce.feature4'),
+        t('services.bigcommerce.feature5')
       ],
       benefits: [
-        'Enterprise scalability',
-        'No transaction fees',
-        'Built-in B2B features',
-        'Headless commerce ready',
-        'Global selling capabilities'
+        t('services.bigcommerce.benefit1'),
+        t('services.bigcommerce.benefit2'),
+        t('services.bigcommerce.benefit3'),
+        t('services.bigcommerce.benefit4'),
+        t('services.bigcommerce.benefit5')
       ],
       process: [
-        'Platform assessment',
-        'Architecture planning',
-        'Custom development',
-        'Integration setup',
-        'Enterprise deployment'
+        t('services.bigcommerce.process1'),
+        t('services.bigcommerce.process2'),
+        t('services.bigcommerce.process3'),
+        t('services.bigcommerce.process4'),
+        t('services.bigcommerce.process5')
       ],
-      cta: 'Scale Your Business'
+      cta: t('services.bigcommerce.cta')
     }
   };
 
