@@ -61,11 +61,23 @@ const AIChatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Use mock response for now (can be switched to real API later)
-      const data = await mockChatResponse({
-        message: userMessage.content,
-        conversationHistory: messages.slice(-10)
+      // Use real API endpoint
+      const response = await fetch('http://localhost:3001/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: userMessage.content,
+          conversationHistory: messages.slice(-10)
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to get response from API');
+      }
+
+      const data = await response.json();
       
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -77,13 +89,32 @@ const AIChatbot: React.FC = () => {
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error) {
       console.error('Chat error:', error);
-      const errorMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        role: 'assistant',
-        content: "I apologize, but I'm having trouble connecting right now. Please try again later or contact us directly at hello@bluelogik.com for immediate assistance.",
-        timestamp: new Date()
-      };
-      setMessages(prev => [...prev, errorMessage]);
+      
+      // Fallback to mock response if API fails
+      try {
+        const fallbackData = await mockChatResponse({
+          message: userMessage.content,
+          conversationHistory: messages.slice(-10)
+        });
+        
+        const assistantMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: fallbackData.message,
+          timestamp: new Date()
+        };
+
+        setMessages(prev => [...prev, assistantMessage]);
+      } catch (fallbackError) {
+        console.error('Fallback error:', fallbackError);
+        const errorMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: "I apologize, but I'm having trouble connecting right now. Please try again later or contact us directly at hello@bluelogik.com for immediate assistance.",
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, errorMessage]);
+      }
     } finally {
       setIsLoading(false);
     }
