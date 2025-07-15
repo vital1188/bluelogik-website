@@ -29,26 +29,28 @@ const Hero: React.FC = () => {
             className="relative px-2 sm:px-0"
           >
             <motion.h1 
-              className="mb-6 sm:mb-8 leading-tight relative text-center sm:text-left"
+              className="mb-6 sm:mb-8 leading-tight relative text-center sm:text-left font-semibold text-gray-900"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
+              style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)' }}
             >
               <span className="block">{t('hero.title')}</span>
               {/* Subtle accent line */}
               <motion.div
-                className="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-300"
+                className="absolute -bottom-2 left-1/2 sm:left-0 transform -translate-x-1/2 sm:translate-x-0 h-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
                 initial={{ width: 0 }}
-                animate={{ width: '60px' }}
+                animate={{ width: '80px' }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               />
             </motion.h1>
             
             <motion.p 
-              className="text-base sm:text-lg mb-8 sm:mb-12 max-w-xl leading-relaxed text-center sm:text-left mx-auto sm:mx-0"
+              className="text-lg sm:text-xl mb-8 sm:mb-12 max-w-xl leading-relaxed text-center sm:text-left mx-auto sm:mx-0 text-gray-700 font-medium"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
+              style={{ textShadow: '0 1px 1px rgba(0, 0, 0, 0.05)' }}
             >
               {t('hero.subtitle')}
             </motion.p>
@@ -291,13 +293,14 @@ const Hero: React.FC = () => {
               className="text-center group px-2 sm:px-4"
             >
               <motion.div 
-                className="text-2xl sm:text-3xl lg:text-4xl font-thin mb-1 sm:mb-2 gradient-text-blue"
+                className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-1 sm:mb-2 gradient-text-blue"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.1)' }}
               >
-                {stat.value}<span className="text-blue-400">{stat.suffix}</span>
+                {stat.value}<span className="text-blue-500">{stat.suffix}</span>
               </motion.div>
-              <div className="text-xs sm:text-sm text-gray-500 uppercase tracking-wider font-medium leading-tight">
+              <div className="text-xs sm:text-sm text-gray-600 uppercase tracking-wider font-semibold leading-tight">
                 {stat.label}
               </div>
             </motion.div>
