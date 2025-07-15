@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 
 interface ServiceInfo {
   id: string;
@@ -381,11 +379,8 @@ const ServiceDetail: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen text-gray-900">
-      <Navbar />
-      
-      <main className="pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back button */}
           <Link 
             to="/#services" 
@@ -475,10 +470,7 @@ const ServiceDetail: React.FC = () => {
               </Link>
             </div>
           </div>
-        </div>
-      </main>
-      
-      <Footer />
+      </div>
     </div>
   );
 };
