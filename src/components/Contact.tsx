@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Clock, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
@@ -13,6 +14,7 @@ const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -24,34 +26,63 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
     
-    // In a real application, you would send this to your backend
-    // which would then send an email to hello@bluelogik.com
-    // For now, we'll simulate the submission
-    
-    // Example of what the backend would do:
-    // await sendEmail({
-    //   to: 'hello@bluelogik.com',
-    //   subject: `New Contact Form Submission from ${formData.name}`,
-    //   body: `
-    //     Name: ${formData.name}
-    //     Email: ${formData.email}
-    //     Company: ${formData.company}
-    //     Message: ${formData.message}
-    //   `
-    // });
-    
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log('Form submitted to hello@bluelogik.com:', formData);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ name: '', email: '', company: '', message: '' });
-      setIsSubmitted(false);
-    }, 3000);
+    try {
+      // Check if EmailJS credentials are configured
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      
+      if (!serviceId || !templateId || !publicKey) {
+        // Fallback to form submission API if EmailJS is not configured
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            to: 'hello@bluelogik.com',
+            from: formData.email,
+            name: formData.name,
+            company: formData.company,
+            message: formData.message,
+          }),
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to send message. Please try again.');
+        }
+      } else {
+        // Use EmailJS if configured
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            to_email: 'hello@bluelogik.com',
+            from_name: formData.name,
+            from_email: formData.email,
+            company: formData.company || 'Not specified',
+            message: formData.message,
+            reply_to: formData.email,
+          },
+          publicKey
+        );
+      }
+      
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setFormData({ name: '', email: '', company: '', message: '' });
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setError(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -64,7 +95,7 @@ const Contact: React.FC = () => {
     {
       icon: Phone,
       label: t('contact.info.phone'),
-      value: '+373 78470679',
+      value: '+373 784 70 679',
       href: 'tel:+37378470679',
       secondary: '+1 (202) 394-7341',
       secondaryHref: 'tel:+12023947341',
@@ -252,6 +283,18 @@ const Contact: React.FC = () => {
                       placeholder={t('contact.form.messagePlaceholder')}
                     />
                   </div>
+                  
+                  {error && (
+                    <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
+                      <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm text-red-800">{error}</p>
+                        <p className="text-xs text-red-600 mt-1">
+                          Please try again or contact us directly at hello@bluelogik.com
+                        </p>
+                      </div>
+                    </div>
+                  )}
                   
                   <button
                     type="submit"
