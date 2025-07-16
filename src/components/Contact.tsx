@@ -29,36 +29,16 @@ const Contact: React.FC = () => {
     setError(null);
     
     try {
-      // Check if EmailJS credentials are configured
+      // Get EmailJS credentials
       const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
       
       if (!serviceId || !templateId || !publicKey) {
-        // If EmailJS is not configured, use mailto fallback
-        const subject = encodeURIComponent(`Contact Form Submission from ${formData.name}`);
-        const body = encodeURIComponent(
-          `Name: ${formData.name}\n` +
-          `Email: ${formData.email}\n` +
-          `Company: ${formData.company || 'Not specified'}\n\n` +
-          `Message:\n${formData.message}`
-        );
-        
-        const mailtoLink = `mailto:hello@bluelogik.com?subject=${subject}&body=${body}`;
-        window.open(mailtoLink, '_blank');
-        
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        
-        // Reset form after 5 seconds
-        setTimeout(() => {
-          setFormData({ name: '', email: '', company: '', message: '' });
-          setIsSubmitted(false);
-        }, 5000);
-        return;
+        throw new Error('EmailJS configuration is missing. Please check environment variables.');
       }
       
-      // Use EmailJS if configured
+      // Send email using EmailJS
       const result = await emailjs.send(
         serviceId,
         templateId,
@@ -73,8 +53,9 @@ const Contact: React.FC = () => {
         publicKey
       );
       
-      console.log('EmailJS result:', result);
+      console.log('EmailJS success:', result);
       
+      // Show success state
       setIsSubmitting(false);
       setIsSubmitted(true);
       
@@ -83,30 +64,23 @@ const Contact: React.FC = () => {
         setFormData({ name: '', email: '', company: '', message: '' });
         setIsSubmitted(false);
       }, 5000);
+      
     } catch (error) {
-      console.error('Error sending email:', error);
-      
-      // If EmailJS fails, fall back to mailto
-      const subject = encodeURIComponent(`Contact Form Submission from ${formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Company: ${formData.company || 'Not specified'}\n\n` +
-        `Message:\n${formData.message}\n\n` +
-        `Note: This message was sent via mailto fallback due to email service error.`
-      );
-      
-      const mailtoLink = `mailto:hello@bluelogik.com?subject=${subject}&body=${body}`;
-      window.open(mailtoLink, '_blank');
-      
+      console.error('EmailJS error:', error);
       setIsSubmitting(false);
-      setIsSubmitted(true);
       
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({ name: '', email: '', company: '', message: '' });
-        setIsSubmitted(false);
-      }, 3000);
+      // Show specific error message
+      if (error instanceof Error) {
+        if (error.message.includes('configuration')) {
+          setError('Email service is not properly configured. Please contact us directly at hello@bluelogik.com or call +373 784 70 679.');
+        } else if (error.message.includes('Invalid')) {
+          setError('Invalid email configuration. Please contact us directly at hello@bluelogik.com or call +373 784 70 679.');
+        } else {
+          setError('Failed to send message. Please try again or contact us directly at hello@bluelogik.com.');
+        }
+      } else {
+        setError('Failed to send message. Please try again or contact us directly at hello@bluelogik.com.');
+      }
     }
   };
 
