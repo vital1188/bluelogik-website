@@ -267,6 +267,48 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
+// Contact form endpoint
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { to, from, name, company, message } = req.body;
+
+    if (!name || !from || !message) {
+      return res.status(400).json({ error: 'Name, email, and message are required' });
+    }
+
+    // Log the contact form submission (in production, you'd send an actual email)
+    console.log('Contact form submission received:');
+    console.log('From:', name, `<${from}>`);
+    console.log('Company:', company || 'Not specified');
+    console.log('To:', to);
+    console.log('Message:', message);
+    console.log('---');
+
+    // For now, we'll simulate successful email sending
+    // In production, you would integrate with an email service like:
+    // - SendGrid
+    // - Nodemailer with SMTP
+    // - AWS SES
+    // - Mailgun
+    // etc.
+
+    // Simulate processing time
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Return success response
+    res.json({ 
+      success: true, 
+      message: 'Message sent successfully! We will get back to you within 24 hours.' 
+    });
+
+  } catch (error) {
+    console.error('Contact form error:', error);
+    res.status(500).json({ 
+      error: 'Failed to send message. Please try again or contact us directly at hello@bluelogik.com' 
+    });
+  }
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'BlueLogik AI Chat API is running' });
