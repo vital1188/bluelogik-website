@@ -35,40 +35,26 @@ const Contact: React.FC = () => {
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
       
       if (!serviceId || !templateId || !publicKey) {
-        // Fallback to form submission API if EmailJS is not configured
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            to: 'hello@bluelogik.com',
-            from: formData.email,
-            name: formData.name,
-            company: formData.company,
-            message: formData.message,
-          }),
-        });
-        
-        if (!response.ok) {
-          throw new Error('Failed to send message. Please try again.');
-        }
-      } else {
-        // Use EmailJS if configured
-        await emailjs.send(
-          serviceId,
-          templateId,
-          {
-            to_email: 'hello@bluelogik.com',
-            from_name: formData.name,
-            from_email: formData.email,
-            company: formData.company || 'Not specified',
-            message: formData.message,
-            reply_to: formData.email,
-          },
-          publicKey
-        );
+        // If EmailJS is not configured, show a helpful message with contact alternatives
+        throw new Error('Thank you for your interest! Please contact us directly: Email: hello@bluelogik.com | Phone: +373 784 70 679 or +1 (202) 394-7341');
       }
+      
+      // Use EmailJS for production deployment
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          to_email: 'hello@bluelogik.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company || 'Not specified',
+          message: formData.message,
+          reply_to: formData.email,
+        },
+        publicKey
+      );
+      
+      console.log('EmailJS result:', result);
       
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -80,7 +66,23 @@ const Contact: React.FC = () => {
       }, 5000);
     } catch (error) {
       console.error('Error sending email:', error);
-      setError(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+      
+      // Provide more specific error messages
+      let errorMessage = 'Failed to send message. Please try again.';
+      
+      if (error instanceof Error) {
+        if (error.message.includes('Thank you for your interest')) {
+          errorMessage = error.message;
+        } else if (error.message.includes('Invalid')) {
+          errorMessage = 'Email service configuration error. Please contact us directly at hello@bluelogik.com or call +373 784 70 679.';
+        } else if (error.message.includes('network') || error.message.includes('fetch')) {
+          errorMessage = 'Network error. Please check your connection and try again, or contact us directly at hello@bluelogik.com.';
+        } else {
+          errorMessage = `${error.message} | Contact us directly: hello@bluelogik.com | +373 784 70 679`;
+        }
+      }
+      
+      setError(errorMessage);
       setIsSubmitting(false);
     }
   };
