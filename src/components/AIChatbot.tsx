@@ -6,9 +6,17 @@ import { useNavigate } from 'react-router-dom';
 const AIChatbot: React.FC = () => {
   const navigate = useNavigate();
 
+  // Toggle this flag to show/hide the chat button
+  const SHOW_CHAT = false; // Set to true to enable chat functionality
+
   const handleChatClick = () => {
     navigate('/chat');
   };
+
+  // Return null to completely hide the component
+  if (!SHOW_CHAT) {
+    return null;
+  }
 
   return (
     <motion.button
