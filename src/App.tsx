@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
@@ -11,7 +11,32 @@ import AllServices from './pages/AllServices';
 import ServiceDetail from './pages/services/ServiceDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
+import ChatPage from './pages/ChatPage';
 import NotFound from './pages/NotFound';
+
+function AppContent() {
+  const location = useLocation();
+  const isChatPage = location.pathname === '/chat';
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      {!isChatPage && <Navbar />}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<AllServices />} />
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      {!isChatPage && <Footer />}
+      {!isChatPage && <AIChatbot />}
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -19,21 +44,7 @@ function App() {
       <LanguageProvider>
         <Router>
           <ScrollToTop />
-          <div className="min-h-screen flex flex-col">
-            <Navbar />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/services" element={<AllServices />} />
-                <Route path="/services/:serviceId" element={<ServiceDetail />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-conditions" element={<TermsConditions />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
-            <AIChatbot />
-          </div>
+          <AppContent />
         </Router>
       </LanguageProvider>
     </ErrorBoundary>
