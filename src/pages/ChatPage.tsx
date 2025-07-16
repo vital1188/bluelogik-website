@@ -131,9 +131,9 @@ const ChatPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg">
+      <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg flex-shrink-0">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center gap-4">
             <button
@@ -159,8 +159,8 @@ const ChatPage: React.FC = () => {
       </div>
 
       {/* Messages Container */}
-      <div className="flex-1 max-w-4xl mx-auto w-full px-4 py-6 overflow-hidden flex flex-col">
-        <div className="flex-1 overflow-y-auto space-y-4 mb-4">
+      <div className="flex-1 max-w-4xl mx-auto w-full px-4 py-4 overflow-hidden flex flex-col min-h-0">
+        <div className="flex-1 overflow-y-auto space-y-4 pb-4">
           {messages.map((message) => (
             <motion.div
               key={message.id}
@@ -212,10 +212,10 @@ const ChatPage: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input Section */}
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-4">
-          <div className="flex gap-3 items-end">
-            <div className="flex-1">
+        {/* Input Section - Fixed for mobile keyboard */}
+        <div className="bg-white rounded-2xl border border-gray-200 shadow-lg p-3 flex-shrink-0">
+          <div className="flex gap-2 items-center">
+            <div className="flex-1 min-w-0">
               <input
                 ref={inputRef}
                 type="text"
@@ -223,21 +223,22 @@ const ChatPage: React.FC = () => {
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Type your message..."
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder-gray-500"
+                className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all placeholder-gray-500 resize-none"
                 disabled={isLoading}
+                style={{ fontSize: '16px' }} // Prevents zoom on iOS
               />
             </div>
             <motion.button
               onClick={sendMessage}
               disabled={!inputValue.trim() || isLoading}
-              className="w-12 h-12 bg-blue-500 text-white rounded-xl hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center shadow-lg"
+              className="w-10 h-10 bg-blue-500 text-white rounded-xl hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center shadow-lg flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {isLoading ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <Loader2 className="w-4 h-4 animate-spin" />
               ) : (
-                <Send className="w-5 h-5" />
+                <Send className="w-4 h-4" />
               )}
             </motion.button>
           </div>
