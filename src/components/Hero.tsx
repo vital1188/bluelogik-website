@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -7,14 +7,24 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
   
   // Mouse position tracking
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   
+  // Scroll tracking for the hero section
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  
   // Spring animations for smooth mouse following
   const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
   const springY = useSpring(mouseY, { stiffness: 150, damping: 15 });
+  
+  // Scroll-based animations
+  const scrollSpring = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
   
   // Transform mouse position to rotation and scale values
   const rotateX = useTransform(springY, [-200, 200], [15, -15]);
@@ -47,8 +57,13 @@ const Hero: React.FC = () => {
     mouseY.set(0);
   };
 
+  // Scroll-based transforms for mobile-optimized rotation
+  const scrollRotation = useTransform(scrollSpring, [0, 1], [0, 360]);
+  const scrollScale = useTransform(scrollSpring, [0, 0.5, 1], [1, 1.1, 0.8]);
+  const scrollOpacity = useTransform(scrollSpring, [0, 0.8, 1], [1, 0.8, 0.3]);
+
   return (
-    <section id="home" className="min-h-screen flex items-center relative overflow-hidden pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-0">
+    <section ref={heroRef} id="home" className="min-h-screen flex items-center relative overflow-hidden pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-0">
       {/* Animated background grid */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
@@ -151,6 +166,11 @@ const Hero: React.FC = () => {
                   className="w-full h-full cursor-pointer"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  style={{
+                    rotate: scrollRotation,
+                    scale: scrollScale,
+                    opacity: scrollOpacity,
+                  }}
                 >
                   <defs>
                     <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
