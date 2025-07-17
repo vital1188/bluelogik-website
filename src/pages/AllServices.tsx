@@ -4,10 +4,11 @@ import { motion } from 'framer-motion';
 import { 
   Zap, TrendingUp, Megaphone, Share2, 
   BarChart3, Puzzle, Code, Globe,
-  ShoppingBag, Store, Package, CreditCard,
+  ShoppingBag, Store, Package,
   ArrowLeft, ArrowUpRight
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import SEO from '../components/SEO';
 
 const AllServices: React.FC = () => {
   const { t } = useLanguage();
@@ -122,9 +123,42 @@ const AllServices: React.FC = () => {
     },
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "All AI Services - BlueLogik",
+    "description": "Comprehensive AI business solutions including optimization, sales growth, marketing automation, data analysis, web development, and e-commerce services.",
+    "url": "https://bluelogik.com/services",
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "BlueLogik AI Services",
+      "description": "Complete range of AI-powered business solutions",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "Service",
+        "position": index + 1,
+        "name": service.title,
+        "description": service.description,
+        "category": service.category,
+        "url": `https://bluelogik.com/services/${service.id}`,
+        "provider": {
+          "@type": "Organization",
+          "name": "BlueLogik AI Solutions"
+        }
+      }))
+    }
+  };
+
   return (
-    <div className="min-h-screen pt-20">
-      <div className="container section-padding">
+    <>
+      <SEO
+        title="All AI Services - BlueLogik | Complete AI Business Solutions Portfolio"
+        description="Explore BlueLogik's complete portfolio of AI services: business optimization, sales growth, marketing automation, data analysis, web development, and e-commerce solutions. Transform your business with proven AI strategies."
+        keywords="AI services portfolio, AI business optimization, AI sales growth, AI marketing automation, AI data analysis, AI web development, AI e-commerce solutions, artificial intelligence services Moldova, AI consulting services, business transformation AI, AI integration services"
+        url="https://bluelogik.com/services"
+        structuredData={structuredData}
+      />
+      <div className="min-h-screen pt-20">
+        <div className="container section-padding">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -213,8 +247,9 @@ const AllServices: React.FC = () => {
             </Link>
           </div>
         </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

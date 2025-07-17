@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './contexts/LanguageContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
@@ -40,14 +41,16 @@ function AppContent() {
 
 function App() {
   return (
-    <ErrorBoundary>
-      <LanguageProvider>
-        <Router>
-          <ScrollToTop />
-          <AppContent />
-        </Router>
-      </LanguageProvider>
-    </ErrorBoundary>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <LanguageProvider>
+          <Router>
+            <ScrollToTop />
+            <AppContent />
+          </Router>
+        </LanguageProvider>
+      </ErrorBoundary>
+    </HelmetProvider>
   );
 }
 
