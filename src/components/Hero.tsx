@@ -1,10 +1,51 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero: React.FC = () => {
   const { t } = useLanguage();
+  const [isHovered, setIsHovered] = useState(false);
+  const svgRef = useRef<SVGSVGElement>(null);
+  
+  // Mouse position tracking
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  // Spring animations for smooth mouse following
+  const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
+  const springY = useSpring(mouseY, { stiffness: 150, damping: 15 });
+  
+  // Transform mouse position to rotation and scale values
+  const rotateX = useTransform(springY, [-200, 200], [15, -15]);
+  const rotateY = useTransform(springX, [-200, 200], [-15, 15]);
+  const scale = useTransform(springX, [-200, 200], [0.95, 1.05]);
+  
+  // Transform values for floating elements
+  const floatingX1 = useTransform(springX, [-200, 200], [-5, 5]);
+  const floatingY1 = useTransform(springY, [-200, 200], [-5, 5]);
+  const floatingX2 = useTransform(springX, [-200, 200], [5, -5]);
+  const floatingY2 = useTransform(springY, [-200, 200], [5, -5]);
+  const nodeX = useTransform(springX, [-200, 200], [-2, 2]);
+  const nodeY = useTransform(springY, [-200, 200], [-2, 2]);
+  
+  // Handle mouse movement
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!svgRef.current) return;
+    
+    const rect = svgRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    mouseX.set(event.clientX - centerX);
+    mouseY.set(event.clientY - centerY);
+  };
+  
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-0">
@@ -89,13 +130,27 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
             className="relative order-first lg:order-last mb-12 lg:mb-0"
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={handleMouseLeave}
           >
             <div className="relative max-w-sm sm:max-w-md lg:max-w-lg mx-auto px-4 sm:px-0">
               {/* Main geometric visualization */}
-              <div className="aspect-square relative">
-                <svg
+              <motion.div 
+                className="aspect-square relative"
+                style={{
+                  rotateX,
+                  rotateY,
+                  scale,
+                  transformStyle: "preserve-3d",
+                }}
+              >
+                <motion.svg
+                  ref={svgRef}
                   viewBox="0 0 400 400"
-                  className="w-full h-full"
+                  className="w-full h-full cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 >
                   <defs>
                     <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -201,17 +256,21 @@ const Hero: React.FC = () => {
                         fill="#0066ff"
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ 
-                          scale: 1,
-                          opacity: [0, 1, 0.5, 1]
+                          scale: isHovered ? [1, 1.5, 1] : 1,
+                          opacity: isHovered ? [0.5, 1, 0.5, 1] : [0, 1, 0.5, 1]
                         }}
                         transition={{ 
                           scale: { duration: 0.5, delay: 1 + i * 0.1 },
                           opacity: { 
-                            duration: 3,
+                            duration: isHovered ? 1.5 : 3,
                             delay: 1.5 + i * 0.2,
                             repeat: Infinity,
                             ease: "easeInOut"
                           }
+                        }}
+                        style={{
+                          x: nodeX,
+                          y: nodeY,
                         }}
                       />
                     );
@@ -237,8 +296,8 @@ const Hero: React.FC = () => {
                       }}
                     />
                   ))}
-                </svg>
-              </div>
+                </motion.svg>
+              </motion.div>
               
               {/* Floating elements around the main visual */}
               <motion.div
@@ -251,6 +310,10 @@ const Hero: React.FC = () => {
                   duration: 4,
                   repeat: Infinity,
                   ease: "easeInOut"
+                }}
+                style={{
+                  x: floatingX1,
+                  y: floatingY1,
                 }}
               >
                 <div className="w-2 h-2 bg-blue-500 rounded-full" />
@@ -267,6 +330,10 @@ const Hero: React.FC = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                   delay: 1
+                }}
+                style={{
+                  x: floatingX2,
+                  y: floatingY2,
                 }}
               />
             </div>
